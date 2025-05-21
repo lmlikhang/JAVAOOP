@@ -1,3 +1,6 @@
 SP0001,John Doe,abc@mail.com,Pepsi
-SP0002,Bob Tan,def@mail.com,Cola
-SP0003,Koh,123@mail.com,something
+SP0002,Bob Tan,def@mail.com,Coca-Cola
+SP0003,Koh,123@mail.com,Iphone 20
+SP0004,Laptop Vendor,laptop@mail.com,Dell Laptop
+SP0005,Sarah Lee,sarah@mail.com,Nasi Lemak
+SP0006,Ahmad Bin Saleh,ahmad@mail.com,Redbull

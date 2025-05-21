@@ -14,7 +14,7 @@ public class Sales_Manager extends javax.swing.JFrame {
      */
     public Sales_Manager() {
         initComponents();
-        new Supplier().loadSpplierOntoComboBox(SupplierID_comboBox);
+        
     }
     private String selectedItemName = null;
     private int selectedItemStock = 0;
@@ -94,12 +94,7 @@ public class Sales_Manager extends javax.swing.JFrame {
         txtquantity = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         Request_requisition = new javax.swing.JButton();
-        EditR = new javax.swing.JButton();
         Delete_btn = new javax.swing.JButton();
-        RequisitionIDlbl = new javax.swing.JLabel();
-        ItemNamelbl = new javax.swing.JLabel();
-        SupplierIDlbl = new javax.swing.JLabel();
-        requiredDatelbl = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         RequestTable = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
@@ -239,7 +234,7 @@ public class Sales_Manager extends javax.swing.JFrame {
         );
         emptyLayout.setVerticalGroup(
             emptyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 601, Short.MAX_VALUE)
+            .addGap(0, 602, Short.MAX_VALUE)
         );
 
         Panels.add(empty, "card7");
@@ -297,7 +292,7 @@ public class Sales_Manager extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Supplier ID :");
+        jLabel7.setText("Supplier name:");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -376,7 +371,7 @@ public class Sales_Manager extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         Panels.add(ListOfItem_Panel, "card2");
@@ -432,7 +427,7 @@ public class Sales_Manager extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(Suppliers_Save_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -481,11 +476,11 @@ public class Sales_Manager extends javax.swing.JFrame {
             SuppliersEntry_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SuppliersEntry_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(SuppliersEntry_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(SuppliersEntry_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         SuppliersEntry_panelLayout.setVerticalGroup(
             SuppliersEntry_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -496,7 +491,7 @@ public class Sales_Manager extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         Panels.add(SuppliersEntry_panel, "card3");
@@ -542,49 +537,49 @@ public class Sales_Manager extends javax.swing.JFrame {
 
         lblCurrentStock.setText("Stock : ");
 
-        lblSupplier.setText("Supplier ID :");
+        lblSupplier.setText("Supplier name :");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Select_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCurrentStock))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblCurrentStock)
+                            .addComponent(lblSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSelectedItem)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane4))
-                            .addComponent(Submit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(lblSupplier, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblSelectedItem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(55, 55, 55))
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(Select_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                        .addComponent(Submit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSelectedItem, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(19, 19, 19)
+                .addComponent(lblSelectedItem, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCurrentStock, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblSupplier)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Submit_btn)
                     .addComponent(Select_btn))
-                .addGap(45, 45, 45))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DailyItemSalesEntry_panelLayout = new javax.swing.GroupLayout(DailyItemSalesEntry_panel);
@@ -593,11 +588,13 @@ public class Sales_Manager extends javax.swing.JFrame {
             DailyItemSalesEntry_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DailyItemSalesEntry_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(DailyItemSalesEntry_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGroup(DailyItemSalesEntry_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(DailyItemSalesEntry_panelLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         DailyItemSalesEntry_panelLayout.setVerticalGroup(
             DailyItemSalesEntry_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -608,7 +605,7 @@ public class Sales_Manager extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Panels.add(DailyItemSalesEntry_panel, "card4");
@@ -641,13 +638,6 @@ public class Sales_Manager extends javax.swing.JFrame {
             }
         });
 
-        EditR.setText("Edit");
-        EditR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditRActionPerformed(evt);
-            }
-        });
-
         Delete_btn.setText("Delete");
         Delete_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -655,68 +645,36 @@ public class Sales_Manager extends javax.swing.JFrame {
             }
         });
 
-        RequisitionIDlbl.setForeground(new java.awt.Color(30, 30, 30));
-        RequisitionIDlbl.setText("RequisitionID");
-
-        ItemNamelbl.setForeground(new java.awt.Color(30, 30, 30));
-        ItemNamelbl.setText("ItemName");
-
-        SupplierIDlbl.setForeground(new java.awt.Color(30, 30, 30));
-        SupplierIDlbl.setText("SupplierID");
-
-        requiredDatelbl.setForeground(new java.awt.Color(30, 30, 30));
-        requiredDatelbl.setText("requiredDate");
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(59, 59, 59)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(Request_requisition, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(EditR, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel10)
-                        .addGap(31, 31, 31)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtquantity, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(RequisitionIDlbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ItemNamelbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(SupplierIDlbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(requiredDatelbl)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(Delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Request_requisition, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(74, 74, 74))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtquantity))
-                        .addGap(18, 18, 18))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RequisitionIDlbl)
-                            .addComponent(ItemNamelbl)
-                            .addComponent(SupplierIDlbl)
-                            .addComponent(requiredDatelbl))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(22, 22, 22)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Request_requisition)
-                    .addComponent(EditR)
-                    .addComponent(Delete_btn))
-                .addGap(17, 17, 17))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtquantity))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Delete_btn)
+                    .addComponent(Request_requisition))
+                .addGap(19, 19, 19))
         );
 
         RequestTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -733,9 +691,11 @@ public class Sales_Manager extends javax.swing.JFrame {
         jScrollPane6.setViewportView(RequestTable);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Items table:");
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Requisition:");
 
         javax.swing.GroupLayout GenerateNDisplayRequisitionLayout = new javax.swing.GroupLayout(GenerateNDisplayRequisition);
@@ -745,33 +705,31 @@ public class Sales_Manager extends javax.swing.JFrame {
             .addGroup(GenerateNDisplayRequisitionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(GenerateNDisplayRequisitionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(GenerateNDisplayRequisitionLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(GenerateNDisplayRequisitionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel5)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane6))
                     .addComponent(jLabel9)
-                    .addComponent(jLabel11))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel11)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         GenerateNDisplayRequisitionLayout.setVerticalGroup(
             GenerateNDisplayRequisitionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(GenerateNDisplayRequisitionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel9)
                 .addGap(2, 2, 2)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         Panels.add(GenerateNDisplayRequisition, "card5");
@@ -815,7 +773,7 @@ public class Sales_Manager extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         Panels.add(PurchaseOrder, "card6");
@@ -851,6 +809,7 @@ public class Sales_Manager extends javax.swing.JFrame {
 
     
     private void ItemEntry_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemEntry_btnActionPerformed
+        new Supplier().loadSpplierOntoComboBox(SupplierID_comboBox);
         Panels.removeAll();
         Panels.add(ListOfItem_Panel);
         Panels.revalidate();
@@ -884,7 +843,8 @@ public class Sales_Manager extends javax.swing.JFrame {
         Panels.repaint();
         Item table = new Item();
         table.loadItemsToTable(ItemsTablePR);
-        
+        PurchaseRequisition set = new PurchaseRequisition();
+        set.loadRequestToTable(RequestTable);
     }//GEN-LAST:event_CreatePurchaseRequisiton_btnActionPerformed
 
     private void PurchaseOrder_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PurchaseOrder_btnActionPerformed
@@ -907,7 +867,7 @@ public class Sales_Manager extends javax.swing.JFrame {
         
         String itemID = "";
         String ItemName = txtItemName.getText();
-        String Price = txtPrice.getText();
+        double Price = Double.parseDouble(txtPrice.getText());
         String supplierID = SupplierID_comboBox.getSelectedItem().toString();
         Supplier supplier = new Supplier();
         supplier.setSupplierID(supplierID);
@@ -919,7 +879,7 @@ public class Sales_Manager extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Please,Enter a valid number.") ;
             return;
         }
-        if(ItemName.equals("")||Price.equals("")){
+        if(ItemName.equals("")){
             JOptionPane.showMessageDialog(this,"Please,Enter all details.") ;
         }else{
             Item AddItems = new Item(itemID, ItemName, Price, Quantity, supplier);
@@ -1032,7 +992,7 @@ public class Sales_Manager extends javax.swing.JFrame {
         lblSelectedItem.setText("Selected Item: " + selectedItemName);
         lblCurrentStock.setText("Stock: " + selectedItemStock);
         lblSelectedItem.setToolTipText("Item Name: " + selectedItemName);
-        lblSupplier.setText("Supplier ID : " + selectedSupplierID);
+        lblSupplier.setText("Supplier name : " + selectedSupplierID);
     } else {
         JOptionPane.showMessageDialog(this, "Please select an item.");
     }
@@ -1078,6 +1038,7 @@ public class Sales_Manager extends javax.swing.JFrame {
         
         String RequisitionID = "";
         String ItemName = ItemsTablePR.getValueAt(selectedRow, 1).toString();
+        String Price = ItemsTablePR.getValueAt(selectedRow,2).toString();
         String SupplierID = ItemsTablePR.getValueAt(selectedRow,4).toString();
         int Quantity = 0;
         String requiredDate = new  java.text.SimpleDateFormat("dd-MM-yyyy").format(new java.util.Date());
@@ -1087,7 +1048,7 @@ public class Sales_Manager extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Please,Enter a valid number.") ;
             return;
         }
-        PurchaseRequisition s = new PurchaseRequisition (RequisitionID, ItemName, SupplierID, Quantity, requiredDate);
+        PurchaseRequisition s = new PurchaseRequisition (RequisitionID, ItemName, SupplierID, Quantity, Price, requiredDate);
         s.saveToFile();
         PurchaseRequisition set = new PurchaseRequisition();
         set.loadRequestToTable(RequestTable);
@@ -1107,28 +1068,6 @@ public class Sales_Manager extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_Delete_btnActionPerformed
 
-    private void EditRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditRActionPerformed
-        int selectedRow = RequestTable.getSelectedRow();
-        if (selectedRow != -1) {
-                
-                String RequisitionID = RequestTable.getValueAt(selectedRow, 0).toString();
-                String ItemName = RequestTable.getValueAt (selectedRow, 1).toString();
-                String SupplierID = RequestTable.getValueAt (selectedRow, 2).toString();
-                String Quantity = RequestTable.getValueAt (selectedRow, 3).toString();
-                String requiredDate = RequestTable.getValueAt (selectedRow, 4).toString();
-                
-                txtQuantity.setText(Quantity);
-                
-                
-                PurchaseRequisition s = new PurchaseRequisition();
-
-                s.loadRequestToTable(ItemsTable); // refresh table
-            } else {
-                JOptionPane.showMessageDialog(this, "Please select an item to remove.");
-            }
-        
-    }//GEN-LAST:event_EditRActionPerformed
-
 
     
 
@@ -1138,11 +1077,9 @@ public class Sales_Manager extends javax.swing.JFrame {
     private javax.swing.JPanel DailyItemSalesEntry_panel;
     private javax.swing.JButton Delete_btn;
     private javax.swing.JButton EditItem_btn;
-    private javax.swing.JButton EditR;
     private javax.swing.JButton Edit_btn;
     private javax.swing.JPanel GenerateNDisplayRequisition;
     private javax.swing.JButton ItemEntry_btn;
-    private javax.swing.JLabel ItemNamelbl;
     private javax.swing.JTable ItemsTable;
     private javax.swing.JTable ItemsTablePR;
     private javax.swing.JPanel ListOfItem_Panel;
@@ -1154,14 +1091,12 @@ public class Sales_Manager extends javax.swing.JFrame {
     private javax.swing.JButton Remove_btn;
     private javax.swing.JTable RequestTable;
     private javax.swing.JButton Request_requisition;
-    private javax.swing.JLabel RequisitionIDlbl;
     private javax.swing.JTable SalesEntry_table;
     private javax.swing.JButton Save_btn;
     private javax.swing.JButton Select_btn;
     private javax.swing.JButton Submit_btn;
     private javax.swing.JButton SupplierEntry_btn;
     private javax.swing.JComboBox<String> SupplierID_comboBox;
-    private javax.swing.JLabel SupplierIDlbl;
     private javax.swing.JPanel SuppliersEntry_panel;
     private javax.swing.JButton Suppliers_Remove_btn1;
     private javax.swing.JButton Suppliers_Save_btn;
@@ -1207,7 +1142,6 @@ public class Sales_Manager extends javax.swing.JFrame {
     private java.awt.Menu menu4;
     private java.awt.MenuBar menuBar1;
     private java.awt.MenuBar menuBar2;
-    private javax.swing.JLabel requiredDatelbl;
     private javax.swing.JTable suppliertable;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtItemName;

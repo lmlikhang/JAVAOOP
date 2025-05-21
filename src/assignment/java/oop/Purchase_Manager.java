@@ -38,7 +38,6 @@ public class Purchase_Manager extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         ListOfItem_btn = new javax.swing.JButton();
-        DisplayRequisition_btn1 = new javax.swing.JButton();
         ListOfSupplier_btn = new javax.swing.JButton();
         GeneratePO_btn3 = new javax.swing.JButton();
         ListOfPO_btn = new javax.swing.JButton();
@@ -53,10 +52,6 @@ public class Purchase_Manager extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         supplier_table = new javax.swing.JTable();
-        DisplayR = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        Request_Table = new javax.swing.JScrollPane();
-        RequestTable = new javax.swing.JTable();
         GeneratePO = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -86,13 +81,6 @@ public class Purchase_Manager extends javax.swing.JFrame {
         ListOfItem_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ListOfItem_btnActionPerformed(evt);
-            }
-        });
-
-        DisplayRequisition_btn1.setText("Display Requisition ");
-        DisplayRequisition_btn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DisplayRequisition_btn1ActionPerformed(evt);
             }
         });
 
@@ -133,7 +121,6 @@ public class Purchase_Manager extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ListOfItem_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ListOfSupplier_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DisplayRequisition_btn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(GeneratePO_btn3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ListOfPO_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -145,12 +132,10 @@ public class Purchase_Manager extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(78, 78, 78)
+                .addGap(116, 116, 116)
                 .addComponent(ListOfItem_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ListOfSupplier_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(DisplayRequisition_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(GeneratePO_btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -247,76 +232,24 @@ public class Purchase_Manager extends javax.swing.JFrame {
             ListOfSuppliersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ListOfSuppliersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(414, Short.MAX_VALUE))
-            .addGroup(ListOfSuppliersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ListOfSuppliersLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addGroup(ListOfSuppliersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ListOfSuppliersLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(0, 408, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE))
+                .addContainerGap())
         );
         ListOfSuppliersLayout.setVerticalGroup(
             ListOfSuppliersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ListOfSuppliersLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(562, Short.MAX_VALUE))
-            .addGroup(ListOfSuppliersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ListOfSuppliersLayout.createSequentialGroup()
-                    .addGap(84, 84, 84)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(85, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         Panels.add(ListOfSuppliers, "card4");
-
-        DisplayR.setBackground(new java.awt.Color(51, 51, 51));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Display Requisition ");
-
-        RequestTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        Request_Table.setViewportView(RequestTable);
-
-        javax.swing.GroupLayout DisplayRLayout = new javax.swing.GroupLayout(DisplayR);
-        DisplayR.setLayout(DisplayRLayout);
-        DisplayRLayout.setHorizontalGroup(
-            DisplayRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DisplayRLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addContainerGap(358, Short.MAX_VALUE))
-            .addGroup(DisplayRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(DisplayRLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(Request_Table, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        DisplayRLayout.setVerticalGroup(
-            DisplayRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DisplayRLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addContainerGap(562, Short.MAX_VALUE))
-            .addGroup(DisplayRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(DisplayRLayout.createSequentialGroup()
-                    .addGap(84, 84, 84)
-                    .addComponent(Request_Table, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(85, Short.MAX_VALUE)))
-        );
-
-        Panels.add(DisplayR, "card5");
 
         GeneratePO.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -490,16 +423,6 @@ public class Purchase_Manager extends javax.swing.JFrame {
         table.loadItemsToTable(ItemsTable);
     }//GEN-LAST:event_ListOfItem_btnActionPerformed
 
-    private void DisplayRequisition_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisplayRequisition_btn1ActionPerformed
-        Panels.removeAll();
-        Panels.add(DisplayR);
-        Panels.revalidate();
-        Panels.repaint();
-        
-        PurchaseRequisition set = new PurchaseRequisition();
-        set.loadRequestToTable(RequestTable);
-    }//GEN-LAST:event_DisplayRequisition_btn1ActionPerformed
-
     private void ListOfSupplier_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListOfSupplier_btnActionPerformed
         Panels.removeAll();
         Panels.add(ListOfSuppliers);
@@ -553,6 +476,7 @@ public class Purchase_Manager extends javax.swing.JFrame {
         remove.removeFromFile(selectedID);
         PurchaseRequisition set = new PurchaseRequisition();
         set.loadRequestToTable(Requisition_Table);
+        JOptionPane.showMessageDialog(rootPane, "Approved");
     }//GEN-LAST:event_Approve_btnActionPerformed
 
     private void Reject_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reject_btnActionPerformed
@@ -562,6 +486,7 @@ public class Purchase_Manager extends javax.swing.JFrame {
         remove.removeFromFile(selectedID);
         PurchaseRequisition set = new PurchaseRequisition();
         set.loadRequestToTable(Requisition_Table);
+        JOptionPane.showMessageDialog(rootPane, "Rejected");
     }//GEN-LAST:event_Reject_btnActionPerformed
 
     /**
@@ -571,8 +496,6 @@ public class Purchase_Manager extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Approve_btn;
-    private javax.swing.JPanel DisplayR;
-    private javax.swing.JButton DisplayRequisition_btn1;
     private javax.swing.JPanel Empty;
     private javax.swing.JPanel GeneratePO;
     private javax.swing.JButton GeneratePO_btn3;
@@ -587,14 +510,11 @@ public class Purchase_Manager extends javax.swing.JFrame {
     private javax.swing.JTable POtable;
     private javax.swing.JPanel Panels;
     private javax.swing.JButton Reject_btn;
-    private javax.swing.JTable RequestTable;
-    private javax.swing.JScrollPane Request_Table;
     private javax.swing.JTable Requisition_Table;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

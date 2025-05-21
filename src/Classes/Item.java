@@ -12,11 +12,11 @@ import javax.swing.table.DefaultTableModel;
 public class Item implements Saveable {
     private String itemID;
     private String ItemName;
-    private String Price;
+    private double Price;
     private int Quantity;
     private Supplier supplier;
 
-    public Item(String itemID, String ItemName, String Price, int Quantity, Supplier supplier){
+    public Item(String itemID, String ItemName, double Price, int Quantity, Supplier supplier){
         this.itemID = itemID;
         this.ItemName = ItemName;
         this.Price = Price;
@@ -39,7 +39,7 @@ public class Item implements Saveable {
         String filePath = "src/assignment/java/oop/FM data/item.txt"; 
 
 
-        String[] columns = {"itemID", "Item name", "Price", "Quantity", "SupplierID"};
+        String[] columns = {"itemID", "Item name", "Price", "Quantity", "Supplier"};
         DefaultTableModel model = new DefaultTableModel(columns, 0); 
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -82,7 +82,7 @@ public class Item implements Saveable {
         }
         
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
-            writer.write(itemID + "," + ItemName + "," +"$"+ Price + "," + Quantity + "," + supplier.getSupplierID());
+            writer.write(itemID + "," + ItemName + "," + Price + "," + Quantity + "," + supplier.getSupplierID());
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();

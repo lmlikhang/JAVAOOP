@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -14,13 +15,15 @@ public class PurchaseRequisition{
     private String ItemName;
     private int Quantity;
     private String SupplierID;
+    private String Price;
     private String requiredDate;
     
-    public PurchaseRequisition(String RequisitionID, String ItemName, String SupplierID, int Quantity, String requiredDate){
+    public PurchaseRequisition(String RequisitionID, String ItemName, String SupplierID, int Quantity, String Price, String requiredDate){
         this.RequisitionID = RequisitionID;
         this.ItemName = ItemName;
         this.SupplierID = SupplierID;
         this.Quantity = Quantity;
+        this.Price = Price;
         this.requiredDate = requiredDate;
     }
     
@@ -33,7 +36,7 @@ public class PurchaseRequisition{
         this.RequisitionID = generateNextID(filePath);
         
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
-            writer.write(RequisitionID + "," + ItemName + "," + Quantity + "," + SupplierID + "," + requiredDate);
+            writer.write(RequisitionID + "," + ItemName + "," + Quantity + "," + Price + ","+ SupplierID + "," + requiredDate);
             writer.newLine();
             
         } catch (IOException e) {
@@ -46,7 +49,7 @@ public class PurchaseRequisition{
         String filePath = "src/assignment/java/oop/FM data/purchase_requisitions.txt"; 
 
 
-        String[] columns = {"RequisitionID", "ItemName", "Quantity", "SupplierID", "requiredDate"};
+        String[] columns = {"RequisitionID", "ItemName", "Quantity", "Price", "SupplierName", "requiredDate"};
         DefaultTableModel model = new DefaultTableModel(columns, 0); 
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -58,7 +61,7 @@ public class PurchaseRequisition{
                 String[] itemData = line.split(",");
 
 
-                if (itemData.length == 5) {
+                if (itemData.length == 6) {
 
                     model.addRow(itemData);
                 }

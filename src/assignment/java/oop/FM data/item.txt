@@ -1,2 +1,6 @@
-IT0001,Coca-Cola,$1.50,50,SP0001	
-IT0002,Pepsi,$1.40,40,SP0003
+IT0001,Coca-Cola,1.50,50,Bob Tan
+IT0002,Pepsi,1.40,28,John Doe
+IT0004,Dell Laptop,2500,15,Laptop Vendor
+IT0005,Nasi Lemak,$.00,100,Sarah Lee
+IT0006,Redbull,3.00,45,Ahmad Bin Saleh
+IT0007,Iphone 20,4000.0,188,Koh

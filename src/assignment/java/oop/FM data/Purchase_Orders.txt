@@ -1,3 +1,4 @@
-PO0016,08-05-2025,Pepsi,100,SP0003,Pending,21-05-2025
-PO0017,21-05-2025,Coca-Cola,123,SP0001	,Pending,21-05-2025
-PO0018,21-05-2025,Coca-Cola,123,SP0001	,Pending,21-05-2025
+PO0001,Bob Tan,Coca-Cola,20,1.50,Approved,21-05-2025
+PO0002,Koh,Iphone 20,10,4000,Pending,21-05-2025
+PO0003,Sarah Lee,Nasi Lemak,30,5.00,Pending,21-05-2025
+PO0004,Laptop Vendor,Dell Laptop,5,2500,Declined,21-05-2025PO0005,Ahmad Bin Saleh,Redbull,12,$3.00,Pending,21-05-2025

@@ -73,6 +73,20 @@ public class Supplier implements Saveable{
     public void saveToFile(){
         String filePath = "src/assignment/java/oop/FM data/suppliers.txt";
         this.SupplierID = generateNextID(filePath);
+        
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))){
+            String line;
+            while ((line = reader.readLine()) !=null){
+                if (line.contains("," + SupplierName + ",")){
+                    JOptionPane.showMessageDialog(null, "Dublicate Supplier name are not allow! ");
+                    
+                    return;
+                }
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
             writer.write(SupplierID + "," + SupplierName + "," + Email + "," + Product);
             writer.newLine();
@@ -142,7 +156,7 @@ public class Supplier implements Saveable{
             while((line = reader.readLine())!=null){
                 String[] data = line.split(",");
                 if (data.length >= 1){
-                    comboBox.addItem(data[0]);
+                    comboBox.addItem(data[1]);
                 }
         }
         }catch (IOException e) {
