@@ -1,0 +1,3 @@
+SP0001,John Doe,abc@mail.com,Pepsi
+SP0002,Bob Tan,def@mail.com,Cola
+SP0003,Koh,123@mail.com,something

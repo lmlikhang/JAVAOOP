@@ -1,0 +1,10 @@
+T001,Laptop (Dell XPS 13),35,2025-05-01,Verified
+T002,Mechanical Keyboard (Logitech G Pro X),58,2025-05-02,Pending
+T003,SSD 1TB (Samsung 980 Pro),44,2025-05-03,Verified
+T004,Monitor 27" (LG UltraFine),27,2025-05-04,Pending
+T005,Wireless Mouse (Razer Basilisk),62,2025-05-05,Pending
+T006,Graphics Card (NVIDIA RTX 4060),18,2025-05-06,Verified
+T007,Gaming Headset (SteelSeries Arctis 7),49,2025-05-07,Pending
+T008,Power Bank 20 000mAh (Anker),76,2025-05-08,Rejected
+T009,Router (TP-Link AX5400),34,2025-05-09,Pending
+T010,Webcam 1080p (Logitech C920),53,2025-05-10,Pending
