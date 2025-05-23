@@ -4,6 +4,7 @@ import Classes.Supplier;
 import Classes.Item;
 import Classes.PurchaseRequisition;
 import Classes.PurchaserOrders;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
@@ -16,6 +17,11 @@ public class Sales_Manager extends javax.swing.JFrame {
         initComponents();
         
     }
+    public Sales_Manager(JFrame previousPage) {
+        this.previousPage = previousPage;
+        initComponents();
+    }
+    private JFrame previousPage;
     private String selectedItemName = null;
     private int selectedItemStock = 0;
     private String selectedSupplierID =null;
@@ -858,8 +864,7 @@ public class Sales_Manager extends javax.swing.JFrame {
     }//GEN-LAST:event_PurchaseOrder_btnActionPerformed
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
-        MainF mainpage = new MainF();
-        mainpage.setVisible(true);
+        previousPage.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_Logout_btnActionPerformed
 

@@ -8,6 +8,7 @@ import Classes.Item;
 import Classes.PurchaseRequisition;
 import Classes.PurchaserOrders;
 import Classes.Supplier;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,11 +20,14 @@ public class Purchase_Manager extends javax.swing.JFrame {
     /**
      * Creates new form Purchase_Manager
      */
-    public Purchase_Manager() {
+    public Purchase_Manager(JFrame previousPage) {
+            this.previousPage = previousPage;
         initComponents();
         
     }
-
+    public Purchase_Manager() {
+    }
+    private JFrame previousPage;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -455,8 +459,7 @@ public class Purchase_Manager extends javax.swing.JFrame {
     }//GEN-LAST:event_ListOfPO_btnActionPerformed
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
-        MainF mainpage = new MainF();
-        mainpage.setVisible(true);
+        previousPage.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_Logout_btnActionPerformed
 
