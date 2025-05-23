@@ -1020,10 +1020,10 @@ public class Sales_Manager extends javax.swing.JFrame {
     Item item = new Item();
     boolean success = item.reduceStock(selectedItemName, qtySold);
     if (success) {
-        JOptionPane.showMessageDialog(this, "Stock updated successfully.");
         lblCurrentStock.setText("Stock: " + (selectedItemStock - qtySold));
         txtquantitySold.setText("");
         item.loadItemsToTable(SalesEntry_table);
+        JOptionPane.showMessageDialog(this, "Stock updated successfully.");
     } else {
         JOptionPane.showMessageDialog(this, "Failed to update stock.");
     }
