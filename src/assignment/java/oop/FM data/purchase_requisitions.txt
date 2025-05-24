@@ -1,3 +1,21 @@
-RQ0001,Coca-Cola,20,1.50,Bob Tan,20-05-2025
-RQ0002,Iphone 20,10,4000,Koh,20-05-2025
-RQ0003,Dell Laptop,20,2500,Laptop Vendor,21-05-2025
+RQ0001,Fresh Strawberries,15,6.50,Alice Ng,20-05-2025
+RQ0002,Whole Chicken,10,18.00,Daniel Wong,20-05-2025
+RQ0003,Salmon Steak,12,22.00,Muhammad Isa,21-05-2025
+RQ0004,Avocados,20,4.00,Chong Mei Ling,21-05-2025
+RQ0005,Broccoli,25,2.80,Lim Jia Wei,22-05-2025
+RQ0006,Eggs,10,7.00,Ravi Kumar,23-05-2025
+RQ0007,Fresh Milk 2L,18,6.00,Nur Izzati,23-05-2025
+RQ0008,Bananas,40,1.20,Henry Goh,24-05-2025
+RQ0009,Sweet Potatoes,35,2.00,Sofia Tan,24-05-2025
+RQ0010,Beef Sirloin,10,28.00,Zakaria Aziz,25-05-2025
+RQ0011,Watermelon,6,15.00,Grace Lim,01-06-2025
+RQ0012,Cherry Tomatoes,20,3.50,Arun Prakash,01-06-2025
+RQ0013,Mangoes,25,5.50,Farah Aina,02-06-2025
+RQ0014,Cauliflower,15,2.80,Jason Lee,03-06-2025
+RQ0015,Spinach,22,3.00,Mei Ching,03-06-2025
+RQ0016,Cucumber,30,1.80,Azman Rahman,04-06-2025
+RQ0017,Oranges,18,2.50,Lydia Ho,04-06-2025
+RQ0018,Pineapple,10,4.20,Nabilah Zahid,05-06-2025
+RQ0019,Fresh Lemongrass,12,1.50,Tan Wei Shen,05-06-2025
+
+

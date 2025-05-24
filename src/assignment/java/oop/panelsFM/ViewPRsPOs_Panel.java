@@ -29,12 +29,12 @@ public class ViewPRsPOs_Panel extends javax.swing.JPanel {
      private void loadPurchaseRequisitions() {
         DefaultTableModel model = (DefaultTableModel) tablePRs.getModel();
         model.setRowCount(0); // Clear previous data
-        String path = "src/assignment/java/oop/FM data/purchase_requisitions.txt";
+        String path = "C:\\Users\\user\\Documents\\NetBeansProjects\\JAVAOOP\\src\\assignment\\java\\oop\\FM data\\purchase_requisitions.txt";
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
-                if (data.length >= 7) {
+                if (data.length >= 6) {
                     model.addRow(data);
                 }
             }
@@ -127,7 +127,7 @@ public class ViewPRsPOs_Panel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "PR ID", "Requested By", "Item", "Qty", "Supplier", "Status"
+                "PR ID", "Item", "Qty", "Price", "Requested By", "Date"
             }
         ));
         jScrollPane1.setViewportView(tablePRs);
