@@ -151,13 +151,16 @@ public class MainF extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbuttonActionPerformed
-        String username = usernametxt.getText();
-        String password = new String(passwordtxt.getPassword());
+        User temp = new User("","","");
+        temp.setUsername(usernametxt.getText());
+        temp.setPassword(new String(passwordtxt.getPassword()));
+        
+        String usernameINPUT = temp.getUsername();
+        String passwordINPUT = temp.getPassword();
         String selectedRole = (String) userBox.getSelectedItem();
         
-        User valid = new User("","","");
-        User user = valid.validateUser(username, password);
-        
+        User user = User.validateUser(usernameINPUT, passwordINPUT);
+
         if (user != null) {
             if (user.getUsertype().equals(selectedRole)){
                 switch (user.getUsertype()) {
@@ -169,13 +172,13 @@ public class MainF extends javax.swing.JFrame {
                     }
                     case "Sales Manager" -> {
                         JOptionPane.showMessageDialog(rootPane, "Welcome back, Sales Manager");
-                        Sales_Manager salesPage = new Sales_Manager();
+                        Sales_Manager salesPage = new Sales_Manager(this);
                         salesPage.setVisible(true);
                         this.setVisible(false);
                     }
                     case "Purchase Manager" -> {
                         JOptionPane.showMessageDialog(rootPane, "Welcome back, Purchase Manager");
-                        Purchase_Manager purchasePage = new Purchase_Manager();
+                        Purchase_Manager purchasePage = new Purchase_Manager(this);
                         purchasePage.setVisible(true);
                         this.setVisible(false);
                     }

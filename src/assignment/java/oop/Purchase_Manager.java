@@ -20,12 +20,16 @@ public class Purchase_Manager extends javax.swing.JFrame {
     /**
      * Creates new form Purchase_Manager
      */
+    
+ 
+    
     public Purchase_Manager(JFrame previousPage) {
-            this.previousPage = previousPage;
+        this.previousPage = previousPage;
         initComponents();
         
     }
     public Purchase_Manager() {
+        initComponents();
     }
     private JFrame previousPage;
     /**

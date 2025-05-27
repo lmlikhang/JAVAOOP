@@ -48,7 +48,7 @@ public class User {
         this.usertype = usertype;
     }
     
-    public User validateUser(String username, String password) {
+    public static User validateUser(String username, String password) {
         try (BufferedReader br = new BufferedReader(new FileReader("src/assignment/java/oop/FM data/users.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
