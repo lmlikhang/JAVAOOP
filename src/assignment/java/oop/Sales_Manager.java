@@ -57,12 +57,12 @@ public class Sales_Manager extends javax.swing.JFrame {
         txtItemName = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
         txtQuantity = new javax.swing.JTextField();
-        Save_btn = new javax.swing.JButton();
+        Item_Save_btn = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        Remove_btn = new javax.swing.JButton();
-        EditItem_btn = new javax.swing.JButton();
+        Remove_Item_btn = new javax.swing.JButton();
+        Edit_Item_btn = new javax.swing.JButton();
         SupplierID_comboBox = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         SuppliersEntry_panel = new javax.swing.JPanel();
@@ -78,7 +78,7 @@ public class Sales_Manager extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         Suppliers_Remove_btn1 = new javax.swing.JButton();
-        Edit_btn = new javax.swing.JButton();
+        Edit_supplier_btn = new javax.swing.JButton();
         DailyItemSalesEntry_panel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -87,9 +87,9 @@ public class Sales_Manager extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         txtquantitySold = new javax.swing.JTextPane();
-        Submit_btn = new javax.swing.JButton();
+        Submit_SIWSE_btn = new javax.swing.JButton();
         lblSelectedItem = new javax.swing.JLabel();
-        Select_btn = new javax.swing.JButton();
+        Select_Item_DIWSE_btn = new javax.swing.JButton();
         lblCurrentStock = new javax.swing.JLabel();
         lblSupplier = new javax.swing.JLabel();
         GenerateNDisplayRequisition = new javax.swing.JPanel();
@@ -99,8 +99,8 @@ public class Sales_Manager extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         txtquantity = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        Request_requisition = new javax.swing.JButton();
-        Delete_btn = new javax.swing.JButton();
+        Request_PR_btn = new javax.swing.JButton();
+        Delete_PR_btn = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         RequestTable = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
@@ -264,10 +264,10 @@ public class Sales_Manager extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(ItemsTable);
 
-        Save_btn.setText("Save");
-        Save_btn.addActionListener(new java.awt.event.ActionListener() {
+        Item_Save_btn.setText("Save");
+        Item_Save_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Save_btnActionPerformed(evt);
+                Item_Save_btnActionPerformed(evt);
             }
         });
 
@@ -277,17 +277,17 @@ public class Sales_Manager extends javax.swing.JFrame {
 
         jLabel15.setText("Quantity :");
 
-        Remove_btn.setText("Remove");
-        Remove_btn.addActionListener(new java.awt.event.ActionListener() {
+        Remove_Item_btn.setText("Remove");
+        Remove_Item_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Remove_btnActionPerformed(evt);
+                Remove_Item_btnActionPerformed(evt);
             }
         });
 
-        EditItem_btn.setText("Edit");
-        EditItem_btn.addActionListener(new java.awt.event.ActionListener() {
+        Edit_Item_btn.setText("Edit");
+        Edit_Item_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditItem_btnActionPerformed(evt);
+                Edit_Item_btnActionPerformed(evt);
             }
         });
 
@@ -308,11 +308,11 @@ public class Sales_Manager extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(Save_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Item_Save_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(EditItem_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Edit_Item_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Remove_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Remove_Item_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
@@ -350,9 +350,9 @@ public class Sales_Manager extends javax.swing.JFrame {
                     .addComponent(jLabel15))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Save_btn)
-                    .addComponent(Remove_btn)
-                    .addComponent(EditItem_btn))
+                    .addComponent(Item_Save_btn)
+                    .addComponent(Remove_Item_btn)
+                    .addComponent(Edit_Item_btn))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -421,10 +421,10 @@ public class Sales_Manager extends javax.swing.JFrame {
             }
         });
 
-        Edit_btn.setText("Edit");
-        Edit_btn.addActionListener(new java.awt.event.ActionListener() {
+        Edit_supplier_btn.setText("Edit");
+        Edit_supplier_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Edit_btnActionPerformed(evt);
+                Edit_supplier_btnActionPerformed(evt);
             }
         });
 
@@ -438,7 +438,7 @@ public class Sales_Manager extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(Suppliers_Save_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Edit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Edit_supplier_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Suppliers_Remove_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -472,7 +472,7 @@ public class Sales_Manager extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Suppliers_Save_btn)
                     .addComponent(Suppliers_Remove_btn1)
-                    .addComponent(Edit_btn))
+                    .addComponent(Edit_supplier_btn))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -525,19 +525,19 @@ public class Sales_Manager extends javax.swing.JFrame {
 
         jScrollPane4.setViewportView(txtquantitySold);
 
-        Submit_btn.setText("Submit");
-        Submit_btn.addActionListener(new java.awt.event.ActionListener() {
+        Submit_SIWSE_btn.setText("Submit");
+        Submit_SIWSE_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Submit_btnActionPerformed(evt);
+                Submit_SIWSE_btnActionPerformed(evt);
             }
         });
 
         lblSelectedItem.setText("Selected Item : ");
 
-        Select_btn.setText("Select");
-        Select_btn.addActionListener(new java.awt.event.ActionListener() {
+        Select_Item_DIWSE_btn.setText("Select");
+        Select_Item_DIWSE_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Select_btnActionPerformed(evt);
+                Select_Item_DIWSE_btnActionPerformed(evt);
             }
         });
 
@@ -563,9 +563,9 @@ public class Sales_Manager extends javax.swing.JFrame {
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(Select_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Select_Item_DIWSE_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                        .addComponent(Submit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Submit_SIWSE_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41))))
         );
         jPanel7Layout.setVerticalGroup(
@@ -583,8 +583,8 @@ public class Sales_Manager extends javax.swing.JFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Submit_btn)
-                    .addComponent(Select_btn))
+                    .addComponent(Submit_SIWSE_btn)
+                    .addComponent(Select_Item_DIWSE_btn))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -637,17 +637,17 @@ public class Sales_Manager extends javax.swing.JFrame {
 
         jLabel10.setText("Quantity :");
 
-        Request_requisition.setText("Request");
-        Request_requisition.addActionListener(new java.awt.event.ActionListener() {
+        Request_PR_btn.setText("Request");
+        Request_PR_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Request_requisitionActionPerformed(evt);
+                Request_PR_btnActionPerformed(evt);
             }
         });
 
-        Delete_btn.setText("Delete");
-        Delete_btn.addActionListener(new java.awt.event.ActionListener() {
+        Delete_PR_btn.setText("Delete");
+        Delete_PR_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Delete_btnActionPerformed(evt);
+                Delete_PR_btnActionPerformed(evt);
             }
         });
 
@@ -664,9 +664,9 @@ public class Sales_Manager extends javax.swing.JFrame {
                         .addComponent(txtquantity, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(Delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Delete_PR_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Request_requisition, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Request_PR_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(74, 74, 74))
         );
         jPanel4Layout.setVerticalGroup(
@@ -678,8 +678,8 @@ public class Sales_Manager extends javax.swing.JFrame {
                     .addComponent(txtquantity))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Delete_btn)
-                    .addComponent(Request_requisition))
+                    .addComponent(Delete_PR_btn)
+                    .addComponent(Request_PR_btn))
                 .addGap(19, 19, 19))
         );
 
@@ -867,10 +867,8 @@ public class Sales_Manager extends javax.swing.JFrame {
         previousPage.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_Logout_btnActionPerformed
-
-    private void Save_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Save_btnActionPerformed
-        
-        String itemID = "";
+  
+    private void Item_Save_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Item_Save_btnActionPerformed
         String ItemName = txtItemName.getText();
         double Price = Double.parseDouble(txtPrice.getText());
         String supplierID = SupplierID_comboBox.getSelectedItem().toString();
@@ -901,9 +899,9 @@ public class Sales_Manager extends javax.swing.JFrame {
             items.loadItemsToTable(ItemsTable);
         }
 
-    }//GEN-LAST:event_Save_btnActionPerformed
+    }//GEN-LAST:event_Item_Save_btnActionPerformed
 
-    private void Remove_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Remove_btnActionPerformed
+    private void Remove_Item_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Remove_Item_btnActionPerformed
         int selectedRow = ItemsTable.getSelectedRow();
             if (selectedRow != -1) {
                 String selectedID = ItemsTable.getValueAt(selectedRow, 0).toString();
@@ -914,10 +912,10 @@ public class Sales_Manager extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Please select an item to remove.");
             }
-    }//GEN-LAST:event_Remove_btnActionPerformed
+    }//GEN-LAST:event_Remove_Item_btnActionPerformed
+    
 
     private void Suppliers_Save_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Suppliers_Save_btnActionPerformed
-        String SupplierID = "";
         String SupplierName = txtSupplierName.getText();
         String Email = txtEmail.getText();
         String Product = txtProduct.getText();
@@ -939,7 +937,7 @@ public class Sales_Manager extends javax.swing.JFrame {
             table.loadTSupplieroTable(suppliertable);
         }
     }//GEN-LAST:event_Suppliers_Save_btnActionPerformed
-
+    
     private void Suppliers_Remove_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Suppliers_Remove_btn1ActionPerformed
         int selectedRow = suppliertable.getSelectedRow();
             if (selectedRow != -1) {
@@ -953,7 +951,7 @@ public class Sales_Manager extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_Suppliers_Remove_btn1ActionPerformed
 
-    private void Edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit_btnActionPerformed
+    private void Edit_supplier_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit_supplier_btnActionPerformed
         int selectedRow = suppliertable.getSelectedRow();
             if (selectedRow != -1) {
                 
@@ -971,9 +969,9 @@ public class Sales_Manager extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Please select an item to remove.");
             }
             
-    }//GEN-LAST:event_Edit_btnActionPerformed
+    }//GEN-LAST:event_Edit_supplier_btnActionPerformed
 
-    private void EditItem_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditItem_btnActionPerformed
+    private void Edit_Item_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit_Item_btnActionPerformed
         int selectedRow = ItemsTable.getSelectedRow();
             if (selectedRow != -1) {
                 
@@ -993,9 +991,9 @@ public class Sales_Manager extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Please select an item to remove.");
             }
-    }//GEN-LAST:event_EditItem_btnActionPerformed
+    }//GEN-LAST:event_Edit_Item_btnActionPerformed
 
-    private void Select_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Select_btnActionPerformed
+    private void Select_Item_DIWSE_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Select_Item_DIWSE_btnActionPerformed
         int selectedRow = SalesEntry_table.getSelectedRow();
     if (selectedRow != -1) {
         selectedItemName = SalesEntry_table.getValueAt(selectedRow, 1).toString(); 
@@ -1010,9 +1008,9 @@ public class Sales_Manager extends javax.swing.JFrame {
     } else {
         JOptionPane.showMessageDialog(this, "Please select an item.");
     }
-    }//GEN-LAST:event_Select_btnActionPerformed
+    }//GEN-LAST:event_Select_Item_DIWSE_btnActionPerformed
 
-    private void Submit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Submit_btnActionPerformed
+    private void Submit_SIWSE_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Submit_SIWSE_btnActionPerformed
         if (selectedItemName == null) {
         JOptionPane.showMessageDialog(this, "Please select an item first.");
         return;
@@ -1041,13 +1039,13 @@ public class Sales_Manager extends javax.swing.JFrame {
     } else {
         JOptionPane.showMessageDialog(this, "Failed to update stock.");
     }
-    }//GEN-LAST:event_Submit_btnActionPerformed
+    }//GEN-LAST:event_Submit_SIWSE_btnActionPerformed
 
     private void SupplierID_comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierID_comboBoxActionPerformed
         
     }//GEN-LAST:event_SupplierID_comboBoxActionPerformed
 
-    private void Request_requisitionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Request_requisitionActionPerformed
+    private void Request_PR_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Request_PR_btnActionPerformed
         int selectedRow = ItemsTablePR.getSelectedRow();
         
         String RequisitionID = "";
@@ -1073,9 +1071,9 @@ public class Sales_Manager extends javax.swing.JFrame {
         PurchaseRequisition set = new PurchaseRequisition();
         set.loadRequestToTable(RequestTable);
         JOptionPane.showMessageDialog(this, "Request successfully.");
-    }//GEN-LAST:event_Request_requisitionActionPerformed
+    }//GEN-LAST:event_Request_PR_btnActionPerformed
 
-    private void Delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_btnActionPerformed
+    private void Delete_PR_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_PR_btnActionPerformed
         int selectedRow = RequestTable.getSelectedRow();
             if (selectedRow != -1) {
                 String selectedID = RequestTable.getValueAt(selectedRow, 0).toString();
@@ -1086,7 +1084,7 @@ public class Sales_Manager extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Please select an item to remove.");
             }
-    }//GEN-LAST:event_Delete_btnActionPerformed
+    }//GEN-LAST:event_Delete_PR_btnActionPerformed
 
 
     
@@ -1095,11 +1093,12 @@ public class Sales_Manager extends javax.swing.JFrame {
     private javax.swing.JButton CreatePurchaseRequisiton_btn;
     private javax.swing.JButton DailyItemSalesEntry_btn;
     private javax.swing.JPanel DailyItemSalesEntry_panel;
-    private javax.swing.JButton Delete_btn;
-    private javax.swing.JButton EditItem_btn;
-    private javax.swing.JButton Edit_btn;
+    private javax.swing.JButton Delete_PR_btn;
+    private javax.swing.JButton Edit_Item_btn;
+    private javax.swing.JButton Edit_supplier_btn;
     private javax.swing.JPanel GenerateNDisplayRequisition;
     private javax.swing.JButton ItemEntry_btn;
+    private javax.swing.JButton Item_Save_btn;
     private javax.swing.JTable ItemsTable;
     private javax.swing.JTable ItemsTablePR;
     private javax.swing.JPanel ListOfItem_Panel;
@@ -1108,13 +1107,12 @@ public class Sales_Manager extends javax.swing.JFrame {
     private javax.swing.JPanel Panels;
     private javax.swing.JPanel PurchaseOrder;
     private javax.swing.JButton PurchaseOrder_btn;
-    private javax.swing.JButton Remove_btn;
+    private javax.swing.JButton Remove_Item_btn;
     private javax.swing.JTable RequestTable;
-    private javax.swing.JButton Request_requisition;
+    private javax.swing.JButton Request_PR_btn;
     private javax.swing.JTable SalesEntry_table;
-    private javax.swing.JButton Save_btn;
-    private javax.swing.JButton Select_btn;
-    private javax.swing.JButton Submit_btn;
+    private javax.swing.JButton Select_Item_DIWSE_btn;
+    private javax.swing.JButton Submit_SIWSE_btn;
     private javax.swing.JButton SupplierEntry_btn;
     private javax.swing.JComboBox<String> SupplierID_comboBox;
     private javax.swing.JPanel SuppliersEntry_panel;
