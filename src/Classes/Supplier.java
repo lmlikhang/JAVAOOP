@@ -38,6 +38,32 @@ public class Supplier implements Saveable{
     public void setSupplierID(String SupplierID) {
         this.SupplierID = SupplierID;
     }
+
+    public String getSupplierName() {
+        return SupplierName;
+    }
+
+    public void setSupplierName(String SupplierName) {
+        this.SupplierName = SupplierName;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String Email) {
+        this.Email = Email;
+    }
+
+    public String getProduct() {
+        return Product;
+    }
+
+    public void setProduct(String Product) {
+        this.Product = Product;
+    }
+
+    
     
     
     public void loadTSupplieroTable(javax.swing.JTable supplierinfo) {

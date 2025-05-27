@@ -27,13 +27,48 @@ public class Item implements Saveable {
     public Item(){
     
     }
-    
+
+    public String getItemID() {
+        return itemID;
+    }
+
+    public void setItemID(String itemID) {
+        this.itemID = itemID;
+    }
+
     public String getItemName() {
         return ItemName;
     }
-    public void setItemName(String ItemName){
+
+    public void setItemName(String ItemName) {
         this.ItemName = ItemName;
     }
+
+    public double getPrice() {
+        return Price;
+    }
+
+    public void setPrice(double Price) {
+        this.Price = Price;
+    }
+
+    public int getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(int Quantity) {
+        this.Quantity = Quantity;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
+
     
     public void loadItemsToTable(javax.swing.JTable itemsTable) {
         String filePath = "src/assignment/java/oop/FM data/item.txt"; 

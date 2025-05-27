@@ -887,7 +887,12 @@ public class Sales_Manager extends javax.swing.JFrame {
         if(ItemName.equals("")){
             JOptionPane.showMessageDialog(this,"Please,Enter all details.") ;
         }else{
-            Item AddItems = new Item(itemID, ItemName, Price, Quantity, supplier);
+            Item AddItems = new Item();
+            AddItems.setItemID(""); 
+            AddItems.setItemName(ItemName);
+            AddItems.setPrice(Price);
+            AddItems.setQuantity(Quantity);
+            AddItems.setSupplier(supplier);
             AddItems.saveToFile();
             txtItemName.setText("");
             txtPrice.setText("");
@@ -903,8 +908,8 @@ public class Sales_Manager extends javax.swing.JFrame {
             if (selectedRow != -1) {
                 String selectedID = ItemsTable.getValueAt(selectedRow, 0).toString();
                 Item s = new Item();
-                s.removeFromFile(selectedID); // delete from file
-                s.loadItemsToTable(ItemsTable); // refresh table
+                s.removeFromFile(selectedID);
+                s.loadItemsToTable(ItemsTable); 
                 JOptionPane.showMessageDialog(this, "Item deleted.");
             } else {
                 JOptionPane.showMessageDialog(this, "Please select an item to remove.");
@@ -920,7 +925,11 @@ public class Sales_Manager extends javax.swing.JFrame {
         if(SupplierName.equals("")||Email.equals("")||Product.equals("")){
             JOptionPane.showMessageDialog(this,"Please,Enter all details.") ;
         }else{
-            Supplier AddSupplier = new Supplier(SupplierID, SupplierName, Email, Product);
+            Supplier AddSupplier = new Supplier();
+            AddSupplier.setSupplierID("");
+            AddSupplier.setSupplierName(SupplierName);
+            AddSupplier.setEmail(Email);
+            AddSupplier.setProduct(Product);        
             AddSupplier.saveToFile();
 
             txtSupplierName.setText("");
@@ -936,8 +945,8 @@ public class Sales_Manager extends javax.swing.JFrame {
             if (selectedRow != -1) {
                 String selectedID = suppliertable.getValueAt(selectedRow, 0).toString();
                 Supplier s = new Supplier();
-                s.removeFromFile(selectedID); // delete from file
-                s.loadTSupplieroTable(suppliertable); // refresh table
+                s.removeFromFile(selectedID);
+                s.loadTSupplieroTable(suppliertable);
                 JOptionPane.showMessageDialog(this, "Item deleted.");
             } else {
                 JOptionPane.showMessageDialog(this, "Please select an item to remove.");
@@ -956,8 +965,8 @@ public class Sales_Manager extends javax.swing.JFrame {
                 txtEmail.setText(Email);
                 txtProduct.setText(Product);
                 Supplier s = new Supplier();
-                s.removeFromFile(selectedID); // delete from file
-                s.loadTSupplieroTable(suppliertable); // refresh table
+                s.removeFromFile(selectedID); 
+                s.loadTSupplieroTable(suppliertable);
             } else {
                 JOptionPane.showMessageDialog(this, "Please select an item to remove.");
             }
@@ -979,8 +988,8 @@ public class Sales_Manager extends javax.swing.JFrame {
                 SupplierID_comboBox.setSelectedItem(supplierID);
                 
                 Item s = new Item();
-                s.removeFromFile(selectedID); // delete from file
-                s.loadItemsToTable(ItemsTable); // refresh table
+                s.removeFromFile(selectedID);
+                s.loadItemsToTable(ItemsTable); 
             } else {
                 JOptionPane.showMessageDialog(this, "Please select an item to remove.");
             }
@@ -989,8 +998,8 @@ public class Sales_Manager extends javax.swing.JFrame {
     private void Select_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Select_btnActionPerformed
         int selectedRow = SalesEntry_table.getSelectedRow();
     if (selectedRow != -1) {
-        selectedItemName = SalesEntry_table.getValueAt(selectedRow, 1).toString(); // item name
-        String stockStr = SalesEntry_table.getValueAt(selectedRow, 3).toString(); // quantity
+        selectedItemName = SalesEntry_table.getValueAt(selectedRow, 1).toString(); 
+        String stockStr = SalesEntry_table.getValueAt(selectedRow, 3).toString();
         selectedSupplierID = SalesEntry_table.getValueAt(selectedRow, 4).toString();
         selectedItemStock = Integer.parseInt(stockStr);
 
@@ -1053,7 +1062,13 @@ public class Sales_Manager extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Please,Enter a valid number.") ;
             return;
         }
-        PurchaseRequisition s = new PurchaseRequisition (RequisitionID, ItemName, SupplierID, Quantity, Price, requiredDate);
+        PurchaseRequisition s = new PurchaseRequisition ();
+        s.setRequisitionID(""); 
+        s.setItemName(ItemName);
+        s.setSupplierID(SupplierID);
+        s.setQuantity(Quantity);
+        s.setPrice(Price);
+        s.setRequiredDate(requiredDate);        
         s.saveToFile();
         PurchaseRequisition set = new PurchaseRequisition();
         set.loadRequestToTable(RequestTable);

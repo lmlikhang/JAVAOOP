@@ -30,6 +30,56 @@ public class PurchaseRequisition{
     public PurchaseRequisition(){
         
     }
+
+    public String getRequisitionID() {
+        return RequisitionID;
+    }
+
+    public void setRequisitionID(String RequisitionID) {
+        this.RequisitionID = RequisitionID;
+    }
+
+    public String getItemName() {
+        return ItemName;
+    }
+
+    public void setItemName(String ItemName) {
+        this.ItemName = ItemName;
+    }
+
+    public int getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(int Quantity) {
+        this.Quantity = Quantity;
+    }
+
+    public String getSupplierID() {
+        return SupplierID;
+    }
+
+    public void setSupplierID(String SupplierID) {
+        this.SupplierID = SupplierID;
+    }
+
+    public String getPrice() {
+        return Price;
+    }
+
+    public void setPrice(String Price) {
+        this.Price = Price;
+    }
+
+    public String getRequiredDate() {
+        return requiredDate;
+    }
+
+    public void setRequiredDate(String requiredDate) {
+        this.requiredDate = requiredDate;
+    }
+    
+    
     
     public void saveToFile() {
         String filePath = "src/assignment/java/oop/FM data/purchase_requisitions.txt";

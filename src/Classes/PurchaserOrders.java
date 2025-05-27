@@ -17,25 +17,75 @@ import javax.swing.table.DefaultTableModel;
  * @author alvin
  */
 public class PurchaserOrders {
-        private String POID;
-        private String supplierID;
-        private String Itemname;
-        private String Quantity;
-        private String Price;
-        private String requiredDate;
+    private String POID;
+    private String supplierID;
+    private String Itemname;
+    private String Quantity;
+    private String Price;
+    private String requiredDate;
         
-        public PurchaserOrders (String POID, String supplierID, String Itemname, String Quantity, String Price, String requiredDate){
-            this.POID = POID;
-            this.supplierID = supplierID;
-            this.Itemname = Itemname;
-            this.Quantity = Quantity;
-            this.Price = Price;
-            this.requiredDate = requiredDate;
+    public PurchaserOrders (String POID, String supplierID, String Itemname, String Quantity, String Price, String requiredDate){
+        this.POID = POID;
+        this.supplierID = supplierID;
+        this.Itemname = Itemname;
+        this.Quantity = Quantity;
+        this.Price = Price;
+        this.requiredDate = requiredDate;
             
-        }
-        public PurchaserOrders (){
+    }
+    public PurchaserOrders (){
             
-        }
+    }
+
+    public String getPOID() {
+        return POID;
+    }
+
+    public void setPOID(String POID) {
+        this.POID = POID;
+    }
+
+    public String getSupplierID() {
+        return supplierID;
+    }
+
+    public void setSupplierID(String supplierID) {
+        this.supplierID = supplierID;
+    }
+
+    public String getItemname() {
+        return Itemname;
+    }
+
+    public void setItemname(String Itemname) {
+        this.Itemname = Itemname;
+    }
+
+    public String getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(String Quantity) {
+        this.Quantity = Quantity;
+    }
+
+    public String getPrice() {
+        return Price;
+    }
+
+    public void setPrice(String Price) {
+        this.Price = Price;
+    }
+
+    public String getRequiredDate() {
+        return requiredDate;
+    }
+
+    public void setRequiredDate(String requiredDate) {
+        this.requiredDate = requiredDate;
+    }
+        
+        
         
         public void LoadtoPOTable(javax.swing.JTable table){
             String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt"; 
