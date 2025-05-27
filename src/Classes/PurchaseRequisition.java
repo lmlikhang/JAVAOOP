@@ -6,19 +6,18 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class PurchaseRequisition{
+public class PurchaseRequisition implements Saveable{
     private String RequisitionID;
     private String ItemName;
     private int Quantity;
     private String SupplierID;
-    private String Price;
+    private double Price;
     private String requiredDate;
     
-    public PurchaseRequisition(String RequisitionID, String ItemName, String SupplierID, int Quantity, String Price, String requiredDate){
+    public PurchaseRequisition(String RequisitionID, String ItemName, String SupplierID, int Quantity, double Price, String requiredDate){
         this.RequisitionID = RequisitionID;
         this.ItemName = ItemName;
         this.SupplierID = SupplierID;
@@ -63,11 +62,11 @@ public class PurchaseRequisition{
         this.SupplierID = SupplierID;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return Price;
     }
 
-    public void setPrice(String Price) {
+    public void setPrice(double Price) {
         this.Price = Price;
     }
 
@@ -81,6 +80,7 @@ public class PurchaseRequisition{
     
     
     
+    @Override
     public void saveToFile() {
         String filePath = "src/assignment/java/oop/FM data/purchase_requisitions.txt";
         this.RequisitionID = generateNextID(filePath);
@@ -90,7 +90,6 @@ public class PurchaseRequisition{
             writer.newLine();
             
         } catch (IOException e) {
-            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "An error occurred while saving items: " + e.getMessage());
         }
     }
@@ -99,7 +98,7 @@ public class PurchaseRequisition{
         String filePath = "src/assignment/java/oop/FM data/purchase_requisitions.txt"; 
 
 
-        String[] columns = {"RequisitionID", "ItemName", "Quantity", "Price", "SupplierName", "requiredDate"};
+        String[] columns = {"RequisitionID", "ItemName", "Quantity", "Price(RM)", "SupplierName", "requiredDate"};
         DefaultTableModel model = new DefaultTableModel(columns, 0); 
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -117,12 +116,13 @@ public class PurchaseRequisition{
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "An error occurred while load items: " + e.getMessage());
         }
 
 
         itemsTable.setModel(model);
     }
+    @Override
     public void removeFromFile(String Requisition){
         String filePath = "src/assignment/java/oop/FM data/purchase_requisitions.txt";
         File inputFile = new File(filePath);
@@ -143,7 +143,6 @@ public class PurchaseRequisition{
                 writer.newLine();
             }
             }catch (IOException e) {
-            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error removing item: " + e.getMessage());
             return;
         }
@@ -157,6 +156,7 @@ public class PurchaseRequisition{
         }
         
     }
+    @Override
     public String generateNextID(String filePath) {
         String lastLine = "";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {

@@ -25,8 +25,9 @@ public class Supplier implements Saveable{
     
     @Override
     public String toString() {
-    return SupplierID;
+        return SupplierID;
     }
+    
     public Supplier() {
    
     }
@@ -88,7 +89,7 @@ public class Supplier implements Saveable{
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
         }
 
 
@@ -110,14 +111,13 @@ public class Supplier implements Saveable{
                 }
             }
         }catch(IOException e){
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
         }
         
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
             writer.write(SupplierID + "," + SupplierName + "," + Email + "," + Product);
             writer.newLine();
         } catch (IOException e) {
-            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "An error occurred while saving items: " + e.getMessage());
         }
     }
@@ -142,7 +142,6 @@ public class Supplier implements Saveable{
                 writer.newLine();
             }
         } catch (IOException e) {
-            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error removing item: " + e.getMessage());
             return;
         }
@@ -169,7 +168,8 @@ public class Supplier implements Saveable{
                 try {
                     int lastID = Integer.parseInt(parts[0].replace("SP", ""));
                     return "SP" + String.format("%04d", lastID + 1);
-                } catch (NumberFormatException ignored) {}
+                } catch (NumberFormatException ignored) {
+                }
             }
         }
         return "SP0001";
@@ -186,7 +186,6 @@ public class Supplier implements Saveable{
                 }
         }
         }catch (IOException e) {
-        e.printStackTrace();
         JOptionPane.showMessageDialog(null, "Error loading supplier IDs: " + e.getMessage());
     }
     }

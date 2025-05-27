@@ -74,7 +74,7 @@ public class Item implements Saveable {
         String filePath = "src/assignment/java/oop/FM data/item.txt"; 
 
 
-        String[] columns = {"itemID", "Item name", "Price", "Quantity", "Supplier"};
+        String[] columns = {"itemID", "Item name", "Price(RM)", "Quantity", "Supplier"};
         DefaultTableModel model = new DefaultTableModel(columns, 0); 
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -92,7 +92,7 @@ public class Item implements Saveable {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
         }
 
 
@@ -108,19 +108,18 @@ public class Item implements Saveable {
             while ((line = reader.readLine()) != null){
             
                 if (line.contains("," + ItemName + ",")){
-                    JOptionPane.showMessageDialog(null, "Dublicate item name are not allow! ");
+                    JOptionPane.showMessageDialog(null, "Dublicate item name are not allowed! ");
                     return;
                 }
             }
         }catch (IOException e){
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
         }
         
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
             writer.write(itemID + "," + ItemName + "," + Price + "," + Quantity + "," + supplier.getSupplierID());
             writer.newLine();
         } catch (IOException e) {
-            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "An error occurred while saving items: " + e.getMessage());
         }
     }
@@ -145,7 +144,6 @@ public class Item implements Saveable {
                 writer.newLine();
             }
         } catch (IOException e) {
-            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error removing item: " + e.getMessage());
             return;
         }
@@ -204,7 +202,6 @@ public class Item implements Saveable {
             }
         }
     } catch (IOException e) {
-        e.printStackTrace();
         return false;
     }
 

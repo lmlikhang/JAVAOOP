@@ -20,11 +20,11 @@ public class PurchaserOrders {
     private String POID;
     private String supplierID;
     private String Itemname;
-    private String Quantity;
-    private String Price;
+    private int Quantity;
+    private double Price;
     private String requiredDate;
         
-    public PurchaserOrders (String POID, String supplierID, String Itemname, String Quantity, String Price, String requiredDate){
+    public PurchaserOrders (String POID, String supplierID, String Itemname, int Quantity, double Price, String requiredDate){
         this.POID = POID;
         this.supplierID = supplierID;
         this.Itemname = Itemname;
@@ -61,19 +61,19 @@ public class PurchaserOrders {
         this.Itemname = Itemname;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return Quantity;
     }
 
-    public void setQuantity(String Quantity) {
+    public void setQuantity(int Quantity) {
         this.Quantity = Quantity;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return Price;
     }
 
-    public void setPrice(String Price) {
+    public void setPrice(double Price) {
         this.Price = Price;
     }
 
@@ -109,7 +109,7 @@ public class PurchaserOrders {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
         }
 
 
@@ -125,7 +125,6 @@ public class PurchaserOrders {
                 writer.newLine();
 
             }catch (IOException e){
-                e.printStackTrace();
                 JOptionPane.showMessageDialog(null, "An error occurred while saving items: " + e.getMessage());
             }
         }

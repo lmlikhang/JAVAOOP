@@ -959,10 +959,14 @@ public class Sales_Manager extends javax.swing.JFrame {
                 String supplierName = suppliertable.getValueAt (selectedRow, 1).toString();
                 String Email = suppliertable.getValueAt (selectedRow, 2).toString();
                 String Product = suppliertable.getValueAt (selectedRow, 3).toString();
-                txtSupplierName.setText(supplierName);
-                txtEmail.setText(Email);
-                txtProduct.setText(Product);
+                
                 Supplier s = new Supplier();
+                s.setSupplierName(supplierName);
+                s.setEmail(Email);
+                s.setProduct(Product);
+                txtSupplierName.setText(s.getSupplierName());
+                txtEmail.setText(s.getEmail());
+                txtProduct.setText(s.getProduct());
                 s.removeFromFile(selectedID); 
                 s.loadTSupplieroTable(suppliertable);
             } else {
@@ -974,18 +978,26 @@ public class Sales_Manager extends javax.swing.JFrame {
     private void Edit_Item_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit_Item_btnActionPerformed
         int selectedRow = ItemsTable.getSelectedRow();
             if (selectedRow != -1) {
-                
                 String selectedID = ItemsTable.getValueAt(selectedRow, 0).toString();
                 String ItemName = ItemsTable.getValueAt (selectedRow, 1).toString();
-                String Price = ItemsTable.getValueAt (selectedRow, 2).toString();
-                String Quantity = ItemsTable.getValueAt (selectedRow, 3).toString();
-                String supplierID = ItemsTable.getValueAt (selectedRow, 4).toString();
-                txtItemName.setText(ItemName);
-                txtPrice.setText(Price.replace("$", ""));
-                txtQuantity.setText(Quantity);
-                SupplierID_comboBox.setSelectedItem(supplierID);
+                double Price = Double.parseDouble(ItemsTable.getValueAt (selectedRow, 2).toString());
+                int Quantity = Integer.parseInt(ItemsTable.getValueAt (selectedRow, 3).toString());
+                String supplierName = ItemsTable.getValueAt (selectedRow, 4).toString();
+                
+                Supplier supplier = new Supplier();
+                supplier.setSupplierName(supplierName);
                 
                 Item s = new Item();
+                s.setItemName(ItemName);
+                s.setPrice(Price);
+                s.setQuantity(Quantity);
+                s.setSupplier(supplier);
+                txtItemName.setText(s.getItemName());
+                txtPrice.setText(String.valueOf(s.getPrice()));
+                txtQuantity.setText(String.valueOf(s.getQuantity()));
+                SupplierID_comboBox.setSelectedItem(s.getSupplier().getSupplierName());
+                
+                
                 s.removeFromFile(selectedID);
                 s.loadItemsToTable(ItemsTable); 
             } else {
@@ -1048,9 +1060,9 @@ public class Sales_Manager extends javax.swing.JFrame {
     private void Request_PR_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Request_PR_btnActionPerformed
         int selectedRow = ItemsTablePR.getSelectedRow();
         
-        String RequisitionID = "";
+        
         String ItemName = ItemsTablePR.getValueAt(selectedRow, 1).toString();
-        String Price = ItemsTablePR.getValueAt(selectedRow,2).toString();
+        double Price = Double.parseDouble(ItemsTablePR.getValueAt(selectedRow,2).toString());
         String SupplierID = ItemsTablePR.getValueAt(selectedRow,4).toString();
         int Quantity = 0;
         String requiredDate = new  java.text.SimpleDateFormat("dd-MM-yyyy").format(new java.util.Date());

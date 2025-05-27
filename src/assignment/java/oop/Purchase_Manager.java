@@ -472,8 +472,8 @@ public class Purchase_Manager extends javax.swing.JFrame {
         String POID = "";
         String supplierID = Requisition_Table.getValueAt (selectedRow,4).toString();
         String Itemname = Requisition_Table.getValueAt (selectedRow,1).toString();
-        String Quantity = Requisition_Table.getValueAt (selectedRow,2).toString();
-        String Price = Requisition_Table.getValueAt (selectedRow,3).toString();
+        int Quantity = Integer.parseInt(Requisition_Table.getValueAt (selectedRow,2).toString());
+        double Price = Double.parseDouble(Requisition_Table.getValueAt (selectedRow,3).toString());
         String requiredDate = new java.text.SimpleDateFormat("dd-MM-yyyy").format(new java.util.Date());
         PurchaserOrders add = new PurchaserOrders();
         add.setPOID(POID);
