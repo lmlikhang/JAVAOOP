@@ -6,11 +6,15 @@ package assignment.java.oop.panelsFM;
 
 import javax.swing.*;
 import java.io.*;
-//import java.io.FileOutputStream;
-//import com.itextpdf.text.Document;
-//import com.itextpdf.text.DocumentException;
-//import com.itextpdf.text.Paragraph;
-//import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileOutputStream;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
 
 
 /**
@@ -142,33 +146,33 @@ public class FinancialReports_Panel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnExportPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportPdfActionPerformed
-//        try {
-//        String content = txtReportArea.getText();
-//        if (content.isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "Report is empty. Generate it first.");
-//            return;
-//        }
-//
-//        JFileChooser fileChooser = new JFileChooser();
-//        fileChooser.setDialogTitle("Save PDF");
-//        fileChooser.setSelectedFile(new java.io.File("Financial_Report.pdf"));
-//        int userSelection = fileChooser.showSaveDialog(this);
-//
-//        if (userSelection == JFileChooser.APPROVE_OPTION) {
-//            java.io.File fileToSave = fileChooser.getSelectedFile();
-//
-//            Document document = new Document();
-//            PdfWriter.getInstance(document, new java.io.FileOutputStream(fileToSave));
-//            document.open();
-//            document.add(new Paragraph(content));
-//            document.close();
-//
-//            JOptionPane.showMessageDialog(this, "PDF saved to:\n" + fileToSave.getAbsolutePath());
-//        }
-//
-//    } catch (DocumentException | IOException e) {
-//        JOptionPane.showMessageDialog(this, "Error exporting to PDF:\n" + e.getMessage());
-//    }
+        try {
+        String content = txtReportArea.getText();
+        if (content.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Report is empty. Generate it first.");
+            return;
+        }
+
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Save PDF");
+        fileChooser.setSelectedFile(new java.io.File("Financial_Report.pdf"));
+        int userSelection = fileChooser.showSaveDialog(this);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            java.io.File fileToSave = fileChooser.getSelectedFile();
+
+            Document document = new Document();
+            PdfWriter.getInstance(document, new java.io.FileOutputStream(fileToSave));
+            document.open();
+            document.add(new Paragraph(content));
+            document.close();
+
+            JOptionPane.showMessageDialog(this, "PDF saved to:\n" + fileToSave.getAbsolutePath());
+        }
+
+    } catch (DocumentException | IOException e) {
+        JOptionPane.showMessageDialog(this, "Error exporting to PDF:\n" + e.getMessage());
+    }
     }//GEN-LAST:event_btnExportPdfActionPerformed
 
     private String convertToDatePrefix(String input) {
@@ -205,11 +209,21 @@ public class FinancialReports_Panel extends javax.swing.JPanel {
     }
 
     try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-        String line;
-        while ((line = br.readLine()) != null) {
-            String[] parts = line.split(",");
-            if (parts.length >= 6 && parts[5].equalsIgnoreCase("Paid")) {
-                if (!parts[6].startsWith(filterMonth)) continue;
+
+    SimpleDateFormat sourceFormat = new SimpleDateFormat("dd-MM-yyyy");
+    SimpleDateFormat targetFormat = new SimpleDateFormat("yyyy-MM");
+
+    String line;
+    while ((line = br.readLine()) != null) {
+        String[] parts = line.split(",");
+        if (parts.length >= 7 && parts[5].equalsIgnoreCase("Paid")) {
+            try {
+                Date orderDate = sourceFormat.parse(parts[6]);
+                String orderMonth = targetFormat.format(orderDate);
+
+                if (!orderMonth.equals(filterMonth)) continue;
+
+                
                 String poID = parts[0];
                 String supplier = parts[1];
                 String item = parts[2];
@@ -217,12 +231,18 @@ public class FinancialReports_Panel extends javax.swing.JPanel {
                 double unitPrice = Double.parseDouble(parts[4]);
                 double total = qty * unitPrice;
 
-                report.append(String.format("PO ID: %s | Supplier: %s | Item: %s | Qty: %d | RM %.2f\n",
-                        poID, supplier, item, qty, total));
+                report.append(String.format(
+                    "PO ID: %s | Supplier: %s | Item: %s | Qty: %d | RM %.2f\n",
+                    poID, supplier, item, qty, total));
                 paidCount++;
                 totalAmount += total;
+
+            } catch (java.text.ParseException e) {
+                // If the date is badly formatted, skip this line
+                System.err.println("Invalid date format in line: " + line);
             }
         }
+    }
 
         report.append("\n-----------------------------\n");
         report.append("Total Paid POs: ").append(paidCount).append("\n");
