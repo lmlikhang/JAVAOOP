@@ -213,5 +213,39 @@ public class Item implements Saveable {
     }
     
     
-    
+    public void addOrUpdateStock(String itemName, int quantityToAdd) {
+        String filePath = "src/assignment/java/oop/FM data/item.txt";
+        File tempFile = new File("src/assignment/java/oop/FM data/items_temp.txt");
+        boolean found = false;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 3 && parts[1].equalsIgnoreCase(itemName)) {
+                    int existingQty = Integer.parseInt(parts[3]);
+                    parts[3] = String.valueOf(existingQty + quantityToAdd);
+                    line = String.join(",", parts);
+                    found = true;
+                }
+                writer.write(line);
+                writer.newLine();
+            }
+            if (!found) {
+                writer.write(itemName + "," + itemName + "," + quantityToAdd + ",0.00");
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error updating item stock: " + e.getMessage());
+        }
+        File original = new File(filePath);
+        if (original.delete()) {
+            tempFile.renameTo(original);
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to replace item file.");
+        }
+
+    }
 }

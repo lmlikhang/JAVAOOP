@@ -6,6 +6,7 @@ package Classes;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -107,14 +108,49 @@ public class PurchaserOrders {
 
                     model.addRow(itemData);
                 }
+                
             }
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
         }
+        
+        
 
 
         table.setModel(model);
         }
+                public void LoadtoPOTable_Approved(javax.swing.JTable table){
+            String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt"; 
+
+
+        String[] columns = {"PO ID", "Supplier", "Item Name", "Quantity", "Price(RM)", "Status", "Date"};
+        DefaultTableModel model = new DefaultTableModel(columns, 0);
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+
+
+            while ((line = reader.readLine()) != null) {
+
+                String[] itemData = line.split(",");
+
+
+                if (itemData.length == 7 && itemData[5].equalsIgnoreCase("Approved")) {
+
+                    model.addRow(itemData);
+                }
+                
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
+        }
+        
+        
+
+
+        table.setModel(model);
+        }
+        
     
         public void saveToFile(){
             String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt";
@@ -148,6 +184,49 @@ public class PurchaserOrders {
                 }
             }
             return "PO0001";
+        }
+        
+        public boolean  ReceivedAndUpdateStock(String selectedPOID, String newStatus){
+            String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt";
+            File tempFile = new File("src/assignment/java/oop/FM data/PO.txt");
+            boolean updated = false;
+            try (BufferedReader reader = new BufferedReader(new FileReader(filePath));
+                 BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))){
+                
+                String line;
+                while ((line = reader.readLine()) != null){
+                    String[] parts = line.split(",");
+                    if (parts.length == 7) {
+                        if (parts[0].equals(selectedPOID)) {
+                            parts[5] = newStatus; // update status
+                            updated = true;
+                        }
+                        writer.write(String.join(",", parts));
+                        writer.newLine();
+            }
+                }
+                
+                
+            }catch(IOException e){
+                JOptionPane.showMessageDialog(null, "Error updating PO status: " + e.getMessage());
+            }
+            
+            if (updated) {
+                File original = new File(filePath);
+                File temp = (tempFile);
+                if (original.delete()) {
+                    if (!temp.renameTo(original)) {
+                        JOptionPane.showMessageDialog(null, "Error renaming temp file.");
+                        return false;
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error deleting original file.");
+                    return false;
+            }
+
+            }
+        return updated;
+            
         }
 
 }
