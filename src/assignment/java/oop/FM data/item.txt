@@ -2,19 +2,20 @@ IT0001,Fresh Strawberries,6.50,100,Alice Ng
 IT0002,Whole Chicken,18.00,80,Daniel Wong
 IT0003,Organic Carrots,3.20,90,Siti Noor
 IT0004,Salmon Steak,22.00,60,Muhammad Isa
-IT0005,Avocados,4.00,70,Chong Mei Ling
+IT0005,Avocados,4.00,5,Chong Mei Ling
 IT0006,Broccoli,2.80,120,Lim Jia Wei
 IT0007,Free-Range Eggs,7.00,110,Ravi Kumar
 IT0008,Fresh Milk 2L,6.00,95,Nur Izzati
 IT0009,Bananas,1.20,150,Henry Goh
-IT0010,Sweet Potatoes,2.00,130,Sofia Tan
-IT0011,Beef Sirloin,28.00,50,Zakaria Aziz
-IT0012,Watermelon,15.00,40,Grace Lim
-IT0013,Cherry Tomatoes,3.50,85,Arun Prakash
+IT0010,Sweet Potatoes,2.00,50,Sofia Tan
+IT0011,Beef Sirloin,28.00,40,Zakaria Aziz
+IT0012,Watermelon,15.00,30,Grace Lim
+IT0013,Cherry Tomatoes,3.5,85,Arun Prakash
 IT0014,Mangoes,5.50,65,Farah Aina
 IT0015,Cauliflower,2.80,90,Jason Lee
 IT0016,Spinach,3.00,110,Mei Ching
-IT0017,Cucumber,1.80,140,Azman Rahman
+IT0017,Cucumber,1.80,170,Azman Rahman
 IT0018,Oranges,2.50,125,Lydia Ho
 IT0019,Pineapple,4.20,65,Nabilah Zahid
 IT0020,Fresh Lemongrass,1.50,70,Tan Wei Shen
+2.00,2.00,0.00,20

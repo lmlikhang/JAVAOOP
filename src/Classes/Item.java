@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -76,7 +78,7 @@ public class Item implements Saveable {
 
         String[] columns = {"itemID", "Item name", "Price(RM)", "Quantity", "Supplier"};
         DefaultTableModel model = new DefaultTableModel(columns, 0); 
-
+        final int LOW_STOCK_THRESHOLD = 10;
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
 
@@ -97,6 +99,35 @@ public class Item implements Saveable {
 
 
         itemsTable.setModel(model);
+        itemsTable.setDefaultRenderer(Object.class, new javax.swing.table.DefaultTableCellRenderer() {
+        @Override
+        public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value,
+                boolean isSelected, boolean hasFocus, int row, int column) {
+
+            java.awt.Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+
+            try {
+                int qty = Integer.parseInt(table.getValueAt(row, 3).toString()); // Quantity is column 3
+                if (qty < LOW_STOCK_THRESHOLD) {
+                    cell.setBackground(java.awt.Color.RED); // Low stock
+                } else {
+                    cell.setBackground(new java.awt.Color(144, 238, 144)); // Light green
+                }
+
+                if (isSelected) {
+                    cell.setBackground(java.awt.Color.BLUE);
+                    cell.setForeground(java.awt.Color.WHITE);
+                } else {
+                    cell.setForeground(java.awt.Color.BLACK);
+                }
+
+            } catch (Exception e) {
+                cell.setBackground(java.awt.Color.WHITE); // fallback
+            }
+
+            return cell;
+        }
+    });
     }
     
     @Override
@@ -213,7 +244,7 @@ public class Item implements Saveable {
     }
     
     
-    public void addOrUpdateStock(String itemName, int quantityToAdd) {
+    public void addOrUpdateStock(String itemName, int finalQuantity) {
         String filePath = "src/assignment/java/oop/FM data/item.txt";
         File tempFile = new File("src/assignment/java/oop/FM data/items_temp.txt");
         boolean found = false;
@@ -224,9 +255,9 @@ public class Item implements Saveable {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length >= 3 && parts[1].equalsIgnoreCase(itemName)) {
-                    int existingQty = Integer.parseInt(parts[3]);
-                    parts[3] = String.valueOf(existingQty + quantityToAdd);
+                if (parts.length >= 4 && parts[1].equalsIgnoreCase(itemName)) {
+                    
+                    parts[3] = String.valueOf(finalQuantity);
                     line = String.join(",", parts);
                     found = true;
                 }
@@ -234,7 +265,7 @@ public class Item implements Saveable {
                 writer.newLine();
             }
             if (!found) {
-                writer.write(itemName + "," + itemName + "," + quantityToAdd + ",0.00");
+                writer.write(itemName + "," + itemName + ",0.00," + finalQuantity);
                 writer.newLine();
             }
         } catch (IOException e) {
@@ -248,4 +279,69 @@ public class Item implements Saveable {
         }
 
     }
+    
+    public int getExistingQuantity(String itemName) {
+        String filePath = "src/assignment/java/oop/FM data/item.txt";
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 4 && parts[1].equalsIgnoreCase(itemName)) {
+                    return Integer.parseInt(parts[3]);
+                }
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error reading item quantity: " + e.getMessage());
+        }
+        return 0;
+    }
+    
+    public String generateStockReportToTextArea() {
+        String filePath = "src/assignment/java/oop/FM data/item.txt";
+        final int LOW_STOCK_THRESHOLD = 10;
+        StringBuilder report = new StringBuilder();
+
+        LocalDate today = LocalDate.now();
+        String date = today.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        
+        String baseName = "src/assignment/java/oop/FM data/StockReports/stock_report_" + date;
+        String outputPath = baseName + ".txt";
+        int count = 1;
+        while (new File(outputPath).exists()) {
+            outputPath = baseName + "_" + count + ".txt";
+            count++;
+        }
+        
+        try (
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath))
+        ) {
+            
+            report.append("=== STOCK REPORT ===\n");
+            report.append("Generated on: ").append(date).append("\n\n");
+            report.append(String.format("%-10s %-25s %-10s %-10s %-15s %-12s\n", "Item ID", "Item Name", "Price", "Qty", "Supplier", "Status"));
+            report.append("-------------------------------------------------------------------------------------\n");
+
+            writer.write(report.toString());
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 5) {
+                    int qty = Integer.parseInt(parts[3]);
+                    String status = qty < LOW_STOCK_THRESHOLD ? "LOW STOCK" : "sufficient";
+
+                    String csvLine = String.join(",", parts[0], parts[1], parts[2], parts[3], parts[4], status);
+                    report.append(csvLine).append("\n");
+                    writer.write(csvLine + "\n");
+                }
+            }
+
+        } catch (IOException e) {
+            return "Error generating stock report: " + e.getMessage();
+        }
+
+        return report.toString();
+    }
+
 }

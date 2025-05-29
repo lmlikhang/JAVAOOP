@@ -198,7 +198,7 @@ public class PurchaserOrders {
                     String[] parts = line.split(",");
                     if (parts.length == 7) {
                         if (parts[0].equals(selectedPOID)) {
-                            parts[5] = newStatus; // update status
+                            parts[5] = newStatus;
                             updated = true;
                         }
                         writer.write(String.join(",", parts));

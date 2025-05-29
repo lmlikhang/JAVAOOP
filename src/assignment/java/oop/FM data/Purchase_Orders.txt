@@ -14,7 +14,7 @@ PO0013,Arun Prakash,Cherry Tomatoes,20,3.50,Declined,03-07-2025
 PO0014,Farah Aina,Mangoes,25,5.50,Approved,04-07-2025
 PO0015,Jason Lee,Cauliflower,15,2.80,Pending,05-07-2025
 PO0016,Mei Ching,Spinach,22,3.00,Declined,06-08-2025
-PO0017,Azman Rahman,Cucumber,30,1.80,Approved,07-08-2025
+PO0017,Azman Rahman,Cucumber,30,1.80,Received,07-08-2025
 PO0018,Lydia Ho,Oranges,18,2.50,Pending,08-08-2025
 PO0019,Nabilah Zahid,Pineapple,10,4.20,Received,09-08-2025
 PO0020,Tan Wei Shen,Fresh Lemongrass,12,1.50,Declined,10-08-2025

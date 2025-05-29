@@ -184,7 +184,7 @@ public class MainF extends javax.swing.JFrame {
                     }
                     case "Inventory Manager" -> {
                         JOptionPane.showMessageDialog(rootPane, "Welcome back, Inventory Manager");
-                        Inventory_Manager inventoryPage = new Inventory_Manager();
+                        Inventory_Manager inventoryPage = new Inventory_Manager(this);
                         inventoryPage.setVisible(true);
                         this.setVisible(false);
                     }

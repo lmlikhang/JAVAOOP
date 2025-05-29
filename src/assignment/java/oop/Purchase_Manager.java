@@ -19,6 +19,7 @@ public class Purchase_Manager extends javax.swing.JFrame {
 
     /**
      * Creates new form Purchase_Manager
+     * @param previousPage
      */
     
  
