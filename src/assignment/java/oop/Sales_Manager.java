@@ -6,6 +6,9 @@ import Classes.PurchaseRequisition;
 import Classes.PurchaserOrders;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+
 
 
 public class Sales_Manager extends javax.swing.JFrame {
@@ -13,14 +16,33 @@ public class Sales_Manager extends javax.swing.JFrame {
     /**
      * Creates new form Sales_Manager
      */
-    public Sales_Manager() {
+    private Administrator adminRef;
+    
+    public Sales_Manager(Administrator admin) {
         initComponents();
+        
+        this.adminRef = admin;
+
+        this.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+        .put(KeyStroke.getKeyStroke("ESCAPE"), "goBack");
+
+        this.getRootPane().getActionMap().put("goBack", new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            adminRef.setVisible(true);                // restore Admin
+            adminRef.showAccessDashboard();           // show dashboard
+            dispose();                                // close Sales Manager
+        }
+    });
         
     }
     public Sales_Manager(JFrame previousPage) {
         this.previousPage = previousPage;
         initComponents();
+        
     }
+    
+
     private JFrame previousPage;
 
 
@@ -868,8 +890,8 @@ public class Sales_Manager extends javax.swing.JFrame {
     }//GEN-LAST:event_PurchaseOrder_btnActionPerformed
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
-        previousPage.setVisible(true);
-        this.setVisible(false);
+        this.dispose(); 
+        new MainF().setVisible(true);
     }//GEN-LAST:event_Logout_btnActionPerformed
   
     private void Item_Save_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Item_Save_btnActionPerformed

@@ -3,15 +3,35 @@ package assignment.java.oop;
 
 import Classes.Item;
 import Classes.PurchaserOrders;
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 
 
 public class Inventory_Manager extends javax.swing.JFrame {
 
+    private Administrator adminRef;
 
-    public Inventory_Manager() {
+    public Inventory_Manager(Administrator adminRef) {
+        this.adminRef = adminRef;
         initComponents();
+
+                
+        this.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+        .put(KeyStroke.getKeyStroke("ESCAPE"), "goBack");
+
+        this.getRootPane().getActionMap().put("goBack", new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            adminRef.setVisible(true);               
+            adminRef.showAccessDashboard();           
+            dispose();                                
+        }
+    });
+        
     }
     public Inventory_Manager(JFrame previousPage) {
         this.previousPage = previousPage;
@@ -469,8 +489,8 @@ public class Inventory_Manager extends javax.swing.JFrame {
     }//GEN-LAST:event_StockReportBtnActionPerformed
 
     private void LogoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutBtnActionPerformed
-        previousPage.setVisible(true);
-        this.setVisible(false);
+        this.dispose(); 
+        new MainF().setVisible(true);
     }//GEN-LAST:event_LogoutBtnActionPerformed
 
     private void RecivedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecivedBtnActionPerformed

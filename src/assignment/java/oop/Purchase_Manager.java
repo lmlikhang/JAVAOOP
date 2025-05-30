@@ -8,8 +8,12 @@ import Classes.Item;
 import Classes.PurchaseRequisition;
 import Classes.PurchaserOrders;
 import Classes.Supplier;
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -29,8 +33,24 @@ public class Purchase_Manager extends javax.swing.JFrame {
         initComponents();
         
     }
-    public Purchase_Manager() {
+    private Administrator adminRef;
+    
+    public Purchase_Manager(Administrator admin) {
         initComponents();
+        
+        this.adminRef = admin;
+
+        this.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+        .put(KeyStroke.getKeyStroke("ESCAPE"), "goBack");
+
+        this.getRootPane().getActionMap().put("goBack", new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            adminRef.setVisible(true);                
+            adminRef.showAccessDashboard();         
+            dispose();                                
+        }
+    });
     }
     private JFrame previousPage;
     /**
@@ -464,8 +484,8 @@ public class Purchase_Manager extends javax.swing.JFrame {
     }//GEN-LAST:event_ListOfPO_btnActionPerformed
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
-        previousPage.setVisible(true);
-        this.setVisible(false);
+        this.dispose(); 
+        new MainF().setVisible(true);
     }//GEN-LAST:event_Logout_btnActionPerformed
 
     private void Approve_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Approve_btnActionPerformed
