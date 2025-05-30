@@ -1,11 +1,10 @@
 T011,Apples,40,2025-06-01,Verified
-T012,Broccoli,25,2025-06-02,Pending
+T012,Broccoli,25,2025-06-02,Verified
 T013,Salmon Fillet,18,2025-06-03,Verified
 T014,Chicken Breast,33,2025-06-04,Pending
 T015,Avocados,29,2025-06-05,Pending
 T016,Spinach,41,2025-06-06,Verified
-T017,Bananas,52,2025-06-07,Pending
+T017,Bananas,52,2025-06-07,Rejected
 T018,Tomatoes,38,2025-06-08,Rejected
 T019,Beef Mince,22,2025-06-09,Pending
 T020,Milk 2L,64,2025-06-10,Pending
-

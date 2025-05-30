@@ -177,8 +177,8 @@ public class ApprovePO_Panel extends javax.swing.JPanel {
     }
 
     String currentStatus = model.getValueAt(row, 5).toString();
-    if (currentStatus.equalsIgnoreCase("Paid")) {
-        JOptionPane.showMessageDialog(this, "You cannot change the status of a Paid PO.");
+    if (currentStatus.equalsIgnoreCase("Paid")|| currentStatus.equalsIgnoreCase("Received")) {
+        JOptionPane.showMessageDialog(this, "You cannot change the status of a Paid or Received PO.");
         return;
     }
 
@@ -192,8 +192,8 @@ public class ApprovePO_Panel extends javax.swing.JPanel {
     int selectedRow = jTable1.getSelectedRow();
     if (selectedRow != -1) {
         String currentStatus = model.getValueAt(selectedRow, 5).toString();
-        if (currentStatus.equalsIgnoreCase("Paid")) {
-            JOptionPane.showMessageDialog(this, "You cannot decline a PO that is already Paid.");
+        if (currentStatus.equalsIgnoreCase("Paid") || currentStatus.equalsIgnoreCase("Received")) {
+            JOptionPane.showMessageDialog(this, "You cannot change the status of a Paid or Received PO.");
             return;
         }
 
@@ -245,7 +245,9 @@ public class ApprovePO_Panel extends javax.swing.JPanel {
                     } else if ("Approved".equalsIgnoreCase(status)) {
                         c.setBackground(new Color(200, 255, 200)); 
                     } else if ("Declined".equalsIgnoreCase(status)) {
-                        c.setBackground(new Color(255, 200, 200)); 
+                        c.setBackground(new Color(255, 200, 200));
+                    } else if ("Received".equalsIgnoreCase(status)) {
+                        c.setBackground(new Color(255, 255, 180));
                     } else {
                         c.setBackground(Color.WHITE);
                     }

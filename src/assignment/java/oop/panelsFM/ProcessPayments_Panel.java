@@ -33,7 +33,7 @@ public class ProcessPayments_Panel extends javax.swing.JPanel {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length >= 7 && parts[5].equalsIgnoreCase("Approved")) {
+                if (parts.length >= 7 && parts[5].equalsIgnoreCase("Received")) {
                     model.addRow(parts);
                 }
             }
@@ -110,10 +110,10 @@ public class ProcessPayments_Panel extends javax.swing.JPanel {
                 boolean isSelected, boolean hasFocus, int row, int column) {
 
             Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-            String status = table.getValueAt(row, 5).toString(); // Use table, not model
+            String status = table.getValueAt(row, 5).toString(); 
 
-            if ("Approved".equalsIgnoreCase(status)) {
-                c.setBackground(new java.awt.Color(200, 255, 200)); // Green
+            if ("Received".equalsIgnoreCase(status)) {
+                c.setBackground(new java.awt.Color(255, 255, 180)); // Yellow
             } else if ("Paid".equalsIgnoreCase(status)) {
                 c.setBackground(new java.awt.Color(180, 220, 255)); // Light blue
             } else {
