@@ -1,6 +1,20 @@
-SP0001,John Doe,abc@mail.com,Pepsi
-SP0002,Bob Tan,def@mail.com,Coca-Cola
-SP0003,Koh,123@mail.com,Iphone 20
-SP0004,Laptop Vendor,laptop@mail.com,Dell Laptop
-SP0005,Sarah Lee,sarah@mail.com,Nasi Lemak
-SP0006,Ahmad Bin Saleh,ahmad@mail.com,Redbull
+SP0001,Alice Ng,alice.ng@example.com,Fresh Strawberries
+SP0002,Daniel Wong,daniel.wong@example.com,Whole Chicken
+SP0003,Siti Noor,siti.noor@example.com,Organic Carrots
+SP0004,Muhammad Isa,muhammad.isa@example.com,Salmon Steak
+SP0005,Chong Mei Ling,chong.mei@example.com,Avocados
+SP0006,Lim Jia Wei,lim.jia@example.com,Broccoli
+SP0007,Ravi Kumar,ravi.kumar@example.com,Free-Range Eggs
+SP0008,Nur Izzati,nur.izzati@example.com,Fresh Milk 2L
+SP0009,Henry Goh,henry.goh@example.com,Bananas
+SP0010,Sofia Tan,sofia.tan@example.com,Sweet Potatoes
+SP0011,Zakaria Aziz,zakaria.aziz@example.com,Beef Sirloin
+SP0012,Grace Lim,grace.lim@example.com,Watermelon
+SP0013,Arun Prakash,arun.prakash@example.com,Cherry Tomatoes
+SP0014,Farah Aina,farah.aina@example.com,Mangoes
+SP0015,Jason Lee,jason.lee@example.com,Cauliflower
+SP0016,Mei Ching,mei.ching@example.com,Spinach
+SP0017,Azman Rahman,azman.rahman@example.com,Cucumber
+SP0018,Lydia Ho,lydia.ho@example.com,Oranges
+SP0019,Nabilah Zahid,nabilah.zahid@example.com,Pineapple
+SP0020,Tan Wei Shen,tan.weishen@example.com,Fresh Lemongrass
