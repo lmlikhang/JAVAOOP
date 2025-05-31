@@ -138,7 +138,7 @@ public class Administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        loadPanel(new assignment.java.oop.admin.Manage_Users());
+        loadPanel(new assignment.java.oop.admin.Manage_Users(this));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void loadPanel(JPanel panel) {
