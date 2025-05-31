@@ -13,6 +13,8 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import java.util.List;
 import java.util.ArrayList;
+import java.io.File;
+
 
 
 
@@ -24,27 +26,26 @@ public class Manage_Users extends javax.swing.JPanel {
     public Manage_Users() {
         initComponents();
         loadUsersToTable();
+        clearAddFields();
+        clearEditFields();
+
     }
     
     public void loadUsersToTable() {
-            DefaultTableModel model = (DefaultTableModel) userTable.getModel();  // replace `userTable` with your table name
-            model.setRowCount(0); // clear current table rows
+             model = (DefaultTableModel) userTable.getModel();
+             model.setRowCount(0); // clear existing rows
 
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+    try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
         String line;
         while ((line = br.readLine()) != null) {
             String[] parts = line.split(",");
-            if (parts.length == 3) {
-                String username = parts[0].trim();
-                String password = parts[1].trim();
-                String userType = parts[2].trim();
-
-                model.addRow(new Object[]{username, password, userType});
+            if (parts.length >= 3) {
+            model.addRow(new Object[]{parts[0].trim(), parts[1].trim(), parts[2].trim()});
             }
         }
-         } catch (IOException e) {
-        JOptionPane.showMessageDialog(this, "Error loading user data.");
-        }
+    } catch (IOException ex) {
+        JOptionPane.showMessageDialog(this, "Error loading users: " + ex.getMessage());
+    }
     }
 
     /**
@@ -273,78 +274,100 @@ public class Manage_Users extends javax.swing.JPanel {
 
     loadUsersToTable();
     JOptionPane.showMessageDialog(this, "User added.");
+    
+    txtUsername.setText("");
+    txtPassword.setText("");
+    txtUserType.setText("");
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-           String username = editUsername.getText().trim();        // OLD username
-           String newUsername = editNewUsername.getText().trim();  // NEW username
-           String oldPassword = editPassword.getText().trim();     // OLD password
-           String newPassword = editNewPassword.getText().trim();  // NEW password
+         String oldUsername = editUsername.getText().trim();
+         String oldPassword = editPassword.getText().trim();
+         String newUsername = editNewUsername.getText().trim();
+         String newPassword = editNewPassword.getText().trim();
+        
 
-    if (username.isEmpty() || newUsername.isEmpty() || oldPassword.isEmpty() || newPassword.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Please fill all fields.");
+    if (oldUsername.isEmpty() || oldPassword.isEmpty() || 
+        newUsername.isEmpty() || newPassword.isEmpty()){
+        JOptionPane.showMessageDialog(this, "Please fill in all fields.");
         return;
     }
 
+    File file = new File("C:\\Users\\user\\Documents\\NetBeansProjects\\JAVAOOP\\src\\assignment\\java\\oop\\FM data\\users.txt");
+
+    List<String> updatedLines = new ArrayList<>();
+
+    boolean userFound = false;
+
+    try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] parts = line.split(",", -1);
+
+            if (parts.length == 3) {
+                if (parts[0].equals(oldUsername) && parts[1].equals(oldPassword)) {
+
+                    String userType = parts.length >= 3 ? parts[2] : "User"; 
+                    updatedLines.add(newUsername + "," + newPassword + "," + userType);
+                    userFound = true;
+                } else {
+                    updatedLines.add(line.trim());
+                }
+                
+            } else {
+                System.out.println(" Skipping malformed line: " + line);
+            }
+        }
+    } catch (IOException e) {
+        JOptionPane.showMessageDialog(this, "Error reading file: " + e.getMessage());
+        return;
+    }
+
+    if (!userFound) {
+        JOptionPane.showMessageDialog(this, "User not found.");
+        return;
+    }
+
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, false))) {
+        for (String updatedLine : updatedLines) {
+            writer.write(updatedLine);
+            writer.newLine();
+        }
+    } catch (IOException e) {
+        JOptionPane.showMessageDialog(this, "Error writing file: " + e.getMessage());
+        return;
+    }
+
+    loadUsersToTable(); 
+    JOptionPane.showMessageDialog(this, "User updated successfully.");
+    
+    editUsername.setText("");
+    editPassword.setText("");
+    editNewUsername.setText("");
+    editNewPassword.setText("");
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    
+    
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        int selectedRow = userTable.getSelectedRow();
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, "Select a user to delete.");
+        return;
+    }
+
+    String usernameToDelete = userTable.getValueAt(selectedRow, 0).toString();
+
     List<String> lines = new ArrayList<>();
-    boolean updated = false;
 
     try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
         String line;
         while ((line = br.readLine()) != null) {
             String[] parts = line.split(",");
-            if (parts.length == 3) {
-                String fileUsername = parts[0].trim();
-                String filePassword = parts[1].trim();
-                String fileType = parts[2].trim();
-
-                if (fileUsername.equals(username) && filePassword.equals(oldPassword)) {
-                    // Match found — update the values
-                    lines.add(newUsername + "," + newPassword + "," + fileType);
-                    updated = true;
-                } else {
-                    lines.add(line); // keep original line
-                }
-            }
-        }
-    } catch (IOException e) {
-        JOptionPane.showMessageDialog(this, "Error reading user file.");
-        return;
-    }
-
-    if (!updated) {
-        JOptionPane.showMessageDialog(this, "User not found or password incorrect.");
-        return;
-    }
-
-    // Write updated lines back to file
-    try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
-        for (String l : lines) {
-            bw.write(l);
-            bw.newLine();
-        }
-        JOptionPane.showMessageDialog(this, "User updated successfully.");
-        loadUsersToTable(); // ⬅️ Refresh the JTable
-    } catch (IOException e) {
-        JOptionPane.showMessageDialog(this, "Error writing user file.");
-    }
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        int selectedRow = userTable.getSelectedRow();
-        if (selectedRow == -1) {
-        JOptionPane.showMessageDialog(this, "Select a user to delete.");
-        return;
-    }
-
-    String usernameToDelete = model.getValueAt(selectedRow, 0).toString();
-
-    List<String> lines = new ArrayList<>();
-
-    try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-        String line;
-        while ((line = br.readLine()) != null) {
-            if (!line.startsWith(usernameToDelete + ",")) {
+            if (parts.length == 3 && !parts[0].equals(usernameToDelete)) {
                 lines.add(line);
             }
         }
@@ -358,13 +381,29 @@ public class Manage_Users extends javax.swing.JPanel {
             bw.write(s);
             bw.newLine();
         }
-        loadUsersToTable();
+
         JOptionPane.showMessageDialog(this, "User deleted.");
     } catch (IOException ex) {
         JOptionPane.showMessageDialog(this, "Error writing file: " + ex.getMessage());
     }
+
+    
+    loadUsersToTable();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+
+    private void clearAddFields() {
+    txtUsername.setText("");
+    txtPassword.setText("");
+    txtUserType.setText("");
+    }
+
+    private void clearEditFields() {
+    editUsername.setText("");
+    editPassword.setText("");
+    editNewUsername.setText("");
+    editNewPassword.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextPane editNewPassword;
