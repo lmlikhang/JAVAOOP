@@ -21,7 +21,7 @@ import java.io.File;
 public class Manage_Users extends javax.swing.JPanel {
 
     DefaultTableModel model;
-    String filePath = "C:/Users/user/Documents/NetBeansProjects/JAVAOOP/src/assignment/java/oop/FM data/users.txt";
+    String filePath = "src/assignment/java/oop/FM data/users.txt";
     
     public Manage_Users() {
         initComponents();
@@ -295,7 +295,7 @@ public class Manage_Users extends javax.swing.JPanel {
         return;
     }
 
-    File file = new File("C:\\Users\\user\\Documents\\NetBeansProjects\\JAVAOOP\\src\\assignment\\java\\oop\\FM data\\users.txt");
+    File file = new File("src\\assignment\\java\\oop\\FM data\\users.txt");
 
     List<String> updatedLines = new ArrayList<>();
 
