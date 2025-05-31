@@ -923,6 +923,7 @@ public class Sales_Manager extends javax.swing.JFrame {
             txtQuantity.setText("");
             Item items = new Item();
             items.loadItemsToTable(ItemsTable);
+            JOptionPane.showMessageDialog(this, "Item are saved successfully.");
         }
 
     }//GEN-LAST:event_Item_Save_btnActionPerformed
@@ -961,6 +962,7 @@ public class Sales_Manager extends javax.swing.JFrame {
             txtProduct.setText("");
             Supplier table = new Supplier();
             table.loadTSupplieroTable(suppliertable);
+            JOptionPane.showMessageDialog(this, "Supplier are saved successfully.");
         }
     }//GEN-LAST:event_Suppliers_Save_btnActionPerformed
     
@@ -1042,7 +1044,6 @@ public class Sales_Manager extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Quantity cannot be negative.");
                     return;
                 }
-
                 Item Manage = new Item();
                 int existingQty = Manage.getExistingQuantity(itemName);
                 int finalQuantity = existingQty - qtyTominus;

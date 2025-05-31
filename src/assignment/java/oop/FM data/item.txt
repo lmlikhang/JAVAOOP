@@ -18,4 +18,3 @@ IT0017,Cucumber,1.80,170,Azman Rahman
 IT0018,Oranges,2.50,125,Lydia Ho
 IT0019,Pineapple,4.20,65,Nabilah Zahid
 IT0020,Fresh Lemongrass,1.50,70,Tan Wei Shen
-
