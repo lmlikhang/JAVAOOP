@@ -17,5 +17,3 @@ RQ0016,Cucumber,30,1.80,Azman Rahman,04-06-2025
 RQ0017,Oranges,18,2.50,Lydia Ho,04-06-2025
 RQ0018,Pineapple,10,4.20,Nabilah Zahid,05-06-2025
 RQ0019,Fresh Lemongrass,12,1.50,Tan Wei Shen,05-06-2025
-
-
