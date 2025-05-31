@@ -8,6 +8,7 @@ package assignment.java.oop;
 import javax.swing.JPanel;
 import assignment.java.oop.admin.Access_Dashboard;
 import java.awt.BorderLayout;
+import assignment.java.oop.admin.Manage_Users;
 
 public class Administrator extends javax.swing.JFrame {
 
@@ -42,6 +43,11 @@ public class Administrator extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 204, 204));
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Manage Users");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(255, 204, 204));
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
@@ -130,6 +136,10 @@ public class Administrator extends javax.swing.JFrame {
         this.dispose(); 
         new MainF().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        loadPanel(new assignment.java.oop.admin.Manage_Users());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void loadPanel(JPanel panel) {
         wrapper.removeAll();
