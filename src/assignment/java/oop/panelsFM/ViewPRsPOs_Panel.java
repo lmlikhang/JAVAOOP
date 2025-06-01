@@ -76,6 +76,10 @@ public class ViewPRsPOs_Panel extends javax.swing.JPanel {
                         c.setBackground(new Color(200, 255, 200));
                     } else if ("Declined".equalsIgnoreCase(status)) {
                         c.setBackground(new Color(255, 200, 200)); 
+                    } else if ("Received".equalsIgnoreCase(status)) {
+                        c.setBackground(new Color(255, 255, 180));
+                    } else if ("Paid".equalsIgnoreCase(status)) {
+                        c.setBackground(new Color(180, 220, 255));
                     } else {
                         c.setBackground(Color.WHITE); 
                     }

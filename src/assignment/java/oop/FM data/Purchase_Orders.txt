@@ -8,13 +8,13 @@ PO0007,Ravi Kumar,Free-Range Eggs,10,7.00,Paid,27-06-2025
 PO0008,Nur Izzati,Fresh Milk 2L,18,6.00,Declined,28-06-2025
 PO0009,Henry Goh,Bananas,40,1.20,Pending,29-06-2025
 PO0010,Sofia Tan,Sweet Potatoes,35,2.00,Approved,30-06-2025
-PO0011,Zakaria Aziz,Beef Sirloin,10,28.00,Approved,01-07-2025
+PO0011,Zakaria Aziz,Beef Sirloin,10,28.00,Received,01-07-2025
 PO0012,Grace Lim,Watermelon,6,15.00,Pending,02-07-2025
 PO0013,Arun Prakash,Cherry Tomatoes,20,3.50,Declined,03-07-2025
-PO0014,Farah Aina,Mangoes,25,5.50,Approved,04-07-2025
+PO0014,Farah Aina,Mangoes,25,5.50,Received,04-07-2025
 PO0015,Jason Lee,Cauliflower,15,2.80,Pending,05-07-2025
 PO0016,Mei Ching,Spinach,22,3.00,Declined,06-08-2025
 PO0017,Azman Rahman,Cucumber,30,1.80,Paid,07-08-2025
 PO0018,Lydia Ho,Oranges,18,2.50,Pending,08-08-2025
-PO0019,Nabilah Zahid,Pineapple,10,4.20,Received,09-08-2025
+PO0019,Nabilah Zahid,Pineapple,10,4.20,Paid,09-08-2025
 PO0020,Tan Wei Shen,Fresh Lemongrass,12,1.50,Declined,10-08-2025
