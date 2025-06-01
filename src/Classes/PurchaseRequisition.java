@@ -122,6 +122,7 @@ public class PurchaseRequisition implements Saveable{
 
         itemsTable.setModel(model);
     }
+    
     @Override
     public void removeFromFile(String Requisition){
         String filePath = "src/assignment/java/oop/FM data/purchase_requisitions.txt";
@@ -156,6 +157,7 @@ public class PurchaseRequisition implements Saveable{
         }
         
     }
+    
     @Override
     public String generateNextID(String filePath) {
         String lastLine = "";

@@ -208,39 +208,39 @@ public class Item implements Saveable {
     }
      
     public boolean reduceStock(String itemName, int qtySold) {
-    String filePath = "src/assignment/java/oop/FM data/item.txt";
-    File inputFile = new File(filePath);
-    File tempFile = new File("temp.txt");
+        String filePath = "src/assignment/java/oop/FM data/item.txt";
+        File inputFile = new File(filePath);
+        File tempFile = new File("temp.txt");
 
-    boolean updated = false;
+        boolean updated = false;
 
-    try (
-        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))
-    ) {
-        String line;
-        while ((line = reader.readLine()) != null) {
-            String[] parts = line.split(",");
-            if (parts.length == 5 && parts[1].equals(itemName)) {
-                int currentQty = Integer.parseInt(parts[3]);
-                int newQty = currentQty - qtySold;
-                writer.write(parts[0] + "," + parts[1] + "," + parts[2] + "," + newQty + "," + parts[4]);
-                writer.newLine();
-                updated = true;
-            } else {
-                writer.write(line);
-                writer.newLine();
+        try (
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))
+        ) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 5 && parts[1].equals(itemName)) {
+                    int currentQty = Integer.parseInt(parts[3]);
+                    int newQty = currentQty - qtySold;
+                    writer.write(parts[0] + "," + parts[1] + "," + parts[2] + "," + newQty + "," + parts[4]);
+                    writer.newLine();
+                    updated = true;
+                } else {
+                    writer.write(line);
+                    writer.newLine();
+                }
             }
+        } catch (IOException e) {
+            return false;
         }
-    } catch (IOException e) {
-        return false;
-    }
 
-    if (inputFile.delete()) {
-        tempFile.renameTo(inputFile);
-    }
+        if (inputFile.delete()) {
+            tempFile.renameTo(inputFile);
+        }
 
-    return updated;
+        return updated;
     }
     
     

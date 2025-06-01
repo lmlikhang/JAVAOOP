@@ -86,8 +86,6 @@ public class PurchaserOrders {
         this.requiredDate = requiredDate;
     }
         
-        
-        
         public void LoadtoPOTable(javax.swing.JTable table){
             String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt"; 
 
@@ -114,97 +112,91 @@ public class PurchaserOrders {
             JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
         }
         
-        
-
-
         table.setModel(model);
         }
                 public void LoadtoPOTable_Approved(javax.swing.JTable table){
             String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt"; 
 
 
-        String[] columns = {"PO ID", "Supplier", "Item Name", "Quantity", "Price(RM)", "Status", "Date"};
-        DefaultTableModel model = new DefaultTableModel(columns, 0);
+            String[] columns = {"PO ID", "Supplier", "Item Name", "Quantity", "Price(RM)", "Status", "Date"};
+            DefaultTableModel model = new DefaultTableModel(columns, 0);
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-
-
-            while ((line = reader.readLine()) != null) {
-
-                String[] itemData = line.split(",");
+            try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+                String line;
 
 
-                if (itemData.length == 7 && itemData[5].equalsIgnoreCase("Approved")) {
+                while ((line = reader.readLine()) != null) {
 
-                    model.addRow(itemData);
+                    String[] itemData = line.split(",");
+
+
+                    if (itemData.length == 7 && itemData[5].equalsIgnoreCase("Approved")) {
+
+                        model.addRow(itemData);
+                    }
+
                 }
-                
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
             }
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
-        }
         
-        
-
-
         table.setModel(model);
         }
         
     
-        public void saveToFile(){
-            String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt";
-            this.POID = generateNextID(filePath);
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath,true))){
+    public void saveToFile(){
+        String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt";
+        this.POID = generateNextID(filePath);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath,true))){
 
-                writer.write(POID +","+ supplierID +","+ Itemname + "," + Quantity + "," + Price + "," + "Pending" + "," + requiredDate);
-                writer.newLine();
+            writer.write(POID +","+ supplierID +","+ Itemname + "," + Quantity + "," + Price + "," + "Pending" + "," + requiredDate);
+            writer.newLine();
 
-            }catch (IOException e){
-                JOptionPane.showMessageDialog(null, "An error occurred while saving items: " + e.getMessage());
+        }catch (IOException e){
+            JOptionPane.showMessageDialog(null, "An error occurred while saving items: " + e.getMessage());
+        }
+    }
+        
+        
+
+    public String generateNextID(String filePath) {
+        String lastLine = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) lastLine = line;
+        } catch (IOException ignored) {}
+
+        if (!lastLine.isEmpty()) {
+            String[] parts = lastLine.split(",");
+            if (parts.length > 0) {
+                try {
+                    int lastID = Integer.parseInt(parts[0].replace("PO", ""));
+                    return "PO" + String.format("%04d", lastID + 1);
+                } catch (NumberFormatException ignored) {}
             }
         }
+        return "PO0001";
+    }
         
-        
-
-        public String generateNextID(String filePath) {
-            String lastLine = "";
-            try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-                String line;
-                while ((line = reader.readLine()) != null) lastLine = line;
-            } catch (IOException ignored) {}
-
-            if (!lastLine.isEmpty()) {
-                String[] parts = lastLine.split(",");
-                if (parts.length > 0) {
-                    try {
-                        int lastID = Integer.parseInt(parts[0].replace("PO", ""));
-                        return "PO" + String.format("%04d", lastID + 1);
-                    } catch (NumberFormatException ignored) {}
-                }
-            }
-            return "PO0001";
-        }
-        
-        public boolean  ReceivedAndUpdateStock(String selectedPOID, String newStatus){
-            String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt";
-            File tempFile = new File("src/assignment/java/oop/FM data/PO.txt");
-            boolean updated = false;
+    public boolean ReceivedAndUpdateStock(String selectedPOID, String newStatus){
+        String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt";
+        File tempFile = new File("src/assignment/java/oop/FM data/PO.txt");
+        boolean updated = false;
             try (BufferedReader reader = new BufferedReader(new FileReader(filePath));
-                 BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))){
+                BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))){
                 
-                String line;
-                while ((line = reader.readLine()) != null){
-                    String[] parts = line.split(",");
-                    if (parts.length == 7) {
-                        if (parts[0].equals(selectedPOID)) {
-                            parts[5] = newStatus;
-                            updated = true;
-                        }
-                        writer.write(String.join(",", parts));
-                        writer.newLine();
-            }
+            String line;
+            while ((line = reader.readLine()) != null){
+                String[] parts = line.split(",");
+                if (parts.length == 7) {
+                    if (parts[0].equals(selectedPOID)) {
+                        parts[5] = newStatus;
+                        updated = true;
+                    }
+                    writer.write(String.join(",", parts));
+                    writer.newLine();
                 }
+            }
                 
                 
             }catch(IOException e){

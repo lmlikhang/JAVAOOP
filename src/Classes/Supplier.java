@@ -23,12 +23,8 @@ public class Supplier implements Saveable{
         this.Product = Product;
     }
     
-       public Supplier() {
+    public Supplier() {
    
-    }
-    
-    public String setSupplierID() {
-        return SupplierID;
     }
 
     public String getSupplierID() {
