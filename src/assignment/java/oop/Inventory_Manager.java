@@ -2,7 +2,7 @@
 package assignment.java.oop;
 
 import Classes.Item;
-import Classes.PurchaserOrders;
+import Classes.PurchaseOrders;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
@@ -466,7 +466,7 @@ public class Inventory_Manager extends javax.swing.JFrame {
         jPanel2.add(ApprovedPanel);
         jPanel2.revalidate();
         jPanel2.repaint();
-        PurchaserOrders POtable = new PurchaserOrders();
+        PurchaseOrders POtable = new PurchaseOrders();
         POtable.LoadtoPOTable_Approved(ApprovePOtable);
         Item ITtable = new Item();
         ITtable.loadItemsToTable(Items_table);
@@ -501,7 +501,7 @@ public class Inventory_Manager extends javax.swing.JFrame {
             String itemName = ApprovePOtable.getValueAt(selectedRow, 2).toString();
             int qtyToAdd = Integer.parseInt(ApprovePOtable.getValueAt(selectedRow, 3).toString());
             
-            PurchaserOrders PO = new PurchaserOrders();
+            PurchaseOrders PO = new PurchaseOrders();
             boolean success = PO.ReceivedAndUpdateStock(selectedPOID, "Received");
             
             if (success){

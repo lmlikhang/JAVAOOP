@@ -160,21 +160,6 @@ public class PurchaseRequisition implements Saveable{
     
     @Override
     public String generateNextID(String filePath) {
-        String lastLine = "";
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) lastLine = line;
-        } catch (IOException ignored) {}
-
-        if (!lastLine.isEmpty()) {
-            String[] parts = lastLine.split(",");
-            if (parts.length > 0) {
-                try {
-                    int lastID = Integer.parseInt(parts[0].replace("RQ", ""));
-                    return "RQ" + String.format("%04d", lastID + 1);
-                } catch (NumberFormatException ignored) {}
-            }
-        }
-        return "RQ0001";
-    }
+        return IDGenerator.generateNextID(filePath, "RQ");
+    }    
 }

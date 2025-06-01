@@ -3,7 +3,7 @@ package assignment.java.oop;
 import Classes.Supplier;
 import Classes.Item;
 import Classes.PurchaseRequisition;
-import Classes.PurchaserOrders;
+import Classes.PurchaseOrders;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.*;
@@ -885,7 +885,7 @@ public class Sales_Manager extends javax.swing.JFrame {
         Panels.revalidate();
         Panels.repaint();
         
-        PurchaserOrders set = new PurchaserOrders();
+        PurchaseOrders set = new PurchaseOrders();
         set.LoadtoPOTable(PO_table);
     }//GEN-LAST:event_PurchaseOrder_btnActionPerformed
 

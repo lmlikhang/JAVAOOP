@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author alvin
  */
-public class PurchaserOrders {
+public class PurchaseOrders implements Saveable{
     private String POID;
     private String supplierID;
     private String Itemname;
@@ -25,7 +25,7 @@ public class PurchaserOrders {
     private double Price;
     private String requiredDate;
         
-    public PurchaserOrders (String POID, String supplierID, String Itemname, int Quantity, double Price, String requiredDate){
+    public PurchaseOrders (String POID, String supplierID, String Itemname, int Quantity, double Price, String requiredDate){
         this.POID = POID;
         this.supplierID = supplierID;
         this.Itemname = Itemname;
@@ -34,7 +34,7 @@ public class PurchaserOrders {
         this.requiredDate = requiredDate;
             
     }
-    public PurchaserOrders (){
+    public PurchaseOrders (){
             
     }
 
@@ -157,25 +157,12 @@ public class PurchaserOrders {
         }
     }
         
-        
+    public void removeFromFile(String id) {
+        //Not supported, but i want to put 
+    }    
 
     public String generateNextID(String filePath) {
-        String lastLine = "";
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) lastLine = line;
-        } catch (IOException ignored) {}
-
-        if (!lastLine.isEmpty()) {
-            String[] parts = lastLine.split(",");
-            if (parts.length > 0) {
-                try {
-                    int lastID = Integer.parseInt(parts[0].replace("PO", ""));
-                    return "PO" + String.format("%04d", lastID + 1);
-                } catch (NumberFormatException ignored) {}
-            }
-        }
-        return "PO0001";
+        return IDGenerator.generateNextID(filePath, "PO");
     }
         
     public boolean ReceivedAndUpdateStock(String selectedPOID, String newStatus){

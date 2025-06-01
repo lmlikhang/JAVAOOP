@@ -6,7 +6,7 @@ package assignment.java.oop;
 
 import Classes.Item;
 import Classes.PurchaseRequisition;
-import Classes.PurchaserOrders;
+import Classes.PurchaseOrders;
 import Classes.Supplier;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
@@ -478,7 +478,7 @@ public class Purchase_Manager extends javax.swing.JFrame {
         Panels.revalidate();
         Panels.repaint();
         
-        PurchaserOrders table = new PurchaserOrders();
+        PurchaseOrders table = new PurchaseOrders();
         
         table.LoadtoPOTable(POtable);
     }//GEN-LAST:event_ListOfPO_btnActionPerformed
@@ -496,7 +496,7 @@ public class Purchase_Manager extends javax.swing.JFrame {
         int Quantity = Integer.parseInt(Requisition_Table.getValueAt (selectedRow,2).toString());
         double Price = Double.parseDouble(Requisition_Table.getValueAt (selectedRow,3).toString());
         String requiredDate = new java.text.SimpleDateFormat("dd-MM-yyyy").format(new java.util.Date());
-        PurchaserOrders add = new PurchaserOrders();
+        PurchaseOrders add = new PurchaseOrders();
         add.setPOID(POID);
         add.setSupplierID(supplierID);
         add.setItemname(Itemname);
