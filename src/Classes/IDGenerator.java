@@ -31,4 +31,23 @@ public class IDGenerator {
         }
         return prefix + "0001";
     }
+    
+    public static String generateNextID(String filePath, String prefix, int extra) {
+        String lastLine = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) lastLine = line;
+        } catch (IOException ignored) {}
+
+        if (!lastLine.isEmpty()) {
+            String[] parts = lastLine.split(",");
+            if (parts.length > 0) {
+                try {
+                    int lastID = Integer.parseInt(parts[0].replace(prefix, ""));
+                    return prefix + String.format("%04d", lastID + extra);
+                } catch (NumberFormatException ignored) {}
+            }
+        }
+        return prefix + "0001";
+    }
 }
