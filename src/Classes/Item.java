@@ -107,11 +107,11 @@ public class Item implements Saveable {
             java.awt.Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 
             try {
-                int qty = Integer.parseInt(table.getValueAt(row, 3).toString()); // Quantity is column 3
+                int qty = Integer.parseInt(table.getValueAt(row, 3).toString());
                 if (qty < LOW_STOCK_THRESHOLD) {
-                    cell.setBackground(java.awt.Color.RED); // Low stock
+                    cell.setBackground(java.awt.Color.RED);
                 } else {
-                    cell.setBackground(new java.awt.Color(144, 238, 144)); // Light green
+                    cell.setBackground(new java.awt.Color(144, 238, 144));
                 }
 
                 if (isSelected) {
@@ -122,13 +122,83 @@ public class Item implements Saveable {
                 }
 
             } catch (Exception e) {
-                cell.setBackground(java.awt.Color.WHITE); // fallback
+                cell.setBackground(java.awt.Color.WHITE);
             }
 
             return cell;
         }
     });
     }
+    
+    public void loadItemsToTable_High(javax.swing.JTable itemsTable) {
+        String filePath = "src/assignment/java/oop/FM data/item.txt"; 
+
+
+        String[] columns = {"itemID", "Item name", "Price(RM)", "Quantity", "Supplier"};
+        DefaultTableModel model = new DefaultTableModel(columns, 0); 
+        
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+
+
+            while ((line = reader.readLine()) != null) {
+
+                String[] itemData = line.split(",");
+
+
+                if (itemData.length == 5) {
+                    try{
+                        int quantity = Integer.parseInt(itemData[3]);
+                        if (quantity > 5){
+                            model.addRow(itemData);
+                        }
+                    }catch(NumberFormatException e){
+                        JOptionPane.showMessageDialog(null, "An error occurred: ");
+                    }
+                }
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
+        }
+
+
+        itemsTable.setModel(model);
+    }    
+    
+    public void loadItemsToTable_Low(javax.swing.JTable itemsTable) {
+        String filePath = "src/assignment/java/oop/FM data/item.txt"; 
+
+
+        String[] columns = {"itemID", "Item name", "Price(RM)", "Quantity", "Supplier"};
+        DefaultTableModel model = new DefaultTableModel(columns, 0); 
+        
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+
+
+            while ((line = reader.readLine()) != null) {
+
+                String[] itemData = line.split(",");
+                if (itemData.length == 5) {
+                    try{
+                        int quantity = Integer.parseInt(itemData[3]);
+                        if (quantity <= 5){
+                            model.addRow(itemData);
+                        }
+                    }catch(NumberFormatException e){
+                        JOptionPane.showMessageDialog(null, "An error occurred: ");
+                    }
+
+                    
+                }
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
+        }
+
+
+        itemsTable.setModel(model);
+    }  
     
     @Override
     public void saveToFile() {

@@ -86,8 +86,36 @@ public class PurchaseOrders implements Saveable{
         this.requiredDate = requiredDate;
     }
         
-        public void LoadtoPOTable(javax.swing.JTable table){
-            String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt"; 
+    public void LoadtoPOTable(javax.swing.JTable table){
+        String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt"; 
+
+
+    String[] columns = {"PO ID", "Supplier", "Item Name", "Quantity", "Price(RM)", "Status", "Date"};
+    DefaultTableModel model = new DefaultTableModel(columns, 0);
+
+    try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        String line;
+
+
+        while ((line = reader.readLine()) != null) {
+
+            String[] itemData = line.split(",");
+
+
+            if (itemData.length == 7) {
+
+                model.addRow(itemData);
+            }
+                
+        }
+    } catch (IOException e) {
+        JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
+    }
+        
+    table.setModel(model);
+    }
+    public void LoadtoPOTable_Approved(javax.swing.JTable table){
+        String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt"; 
 
 
         String[] columns = {"PO ID", "Supplier", "Item Name", "Quantity", "Price(RM)", "Status", "Date"};
@@ -102,46 +130,18 @@ public class PurchaseOrders implements Saveable{
                 String[] itemData = line.split(",");
 
 
-                if (itemData.length == 7) {
+                if (itemData.length == 7 && itemData[5].equalsIgnoreCase("Approved")) {
 
                     model.addRow(itemData);
                 }
-                
+
             }
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
         }
         
         table.setModel(model);
-        }
-                public void LoadtoPOTable_Approved(javax.swing.JTable table){
-            String filePath = "src/assignment/java/oop/FM data/Purchase_Orders.txt"; 
-
-
-            String[] columns = {"PO ID", "Supplier", "Item Name", "Quantity", "Price(RM)", "Status", "Date"};
-            DefaultTableModel model = new DefaultTableModel(columns, 0);
-
-            try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-                String line;
-
-
-                while ((line = reader.readLine()) != null) {
-
-                    String[] itemData = line.split(",");
-
-
-                    if (itemData.length == 7 && itemData[5].equalsIgnoreCase("Approved")) {
-
-                        model.addRow(itemData);
-                    }
-
-                }
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
-            }
-        
-        table.setModel(model);
-        }
+    }
         
     
     public void saveToFile(){
@@ -157,10 +157,12 @@ public class PurchaseOrders implements Saveable{
         }
     }
         
+    @Override
     public void removeFromFile(String id) {
         // Not supported, but i want to put "implements Saveable"  ა(˶ㅠ︿ㅠ)ა
     }    
 
+    @Override
     public String generateNextID(String filePath) {
         return IDGenerator.generateNextID(filePath, "PO");
     }

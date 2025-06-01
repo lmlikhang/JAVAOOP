@@ -66,6 +66,9 @@ public class Inventory_Manager extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lowStock_btn = new javax.swing.JButton();
+        HighStock_btn = new javax.swing.JButton();
+        ShowAll_btn = new javax.swing.JButton();
         StockReportPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ReportStockArea = new javax.swing.JTextArea();
@@ -268,18 +271,46 @@ public class Inventory_Manager extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jLabel2.setText("RED is low on stock");
 
+        lowStock_btn.setText("Low Stock filter");
+        lowStock_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lowStock_btnActionPerformed(evt);
+            }
+        });
+
+        HighStock_btn.setText("High Stock filter");
+        HighStock_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HighStock_btnActionPerformed(evt);
+            }
+        });
+
+        ShowAll_btn.setText("All");
+        ShowAll_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowAll_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout UpdateStockPanelLayout = new javax.swing.GroupLayout(UpdateStockPanel);
         UpdateStockPanel.setLayout(UpdateStockPanelLayout);
         UpdateStockPanelLayout.setHorizontalGroup(
             UpdateStockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UpdateStockPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(UpdateStockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(UpdateStockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                .addGroup(UpdateStockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(UpdateStockPanelLayout.createSequentialGroup()
+                        .addGroup(UpdateStockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ShowAll_btn)
+                        .addGap(18, 18, 18)
+                        .addComponent(HighStock_btn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lowStock_btn))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         UpdateStockPanelLayout.setVerticalGroup(
@@ -288,9 +319,15 @@ public class Inventory_Manager extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel2)
+                .addGroup(UpdateStockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(UpdateStockPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel2))
+                    .addGroup(UpdateStockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lowStock_btn)
+                        .addComponent(HighStock_btn)
+                        .addComponent(ShowAll_btn)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
@@ -555,6 +592,21 @@ public class Inventory_Manager extends javax.swing.JFrame {
         ReportStockArea.setText(reportText);
     }//GEN-LAST:event_GenerateReport_btnActionPerformed
 
+    private void HighStock_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HighStock_btnActionPerformed
+        Item h = new Item();
+        h.loadItemsToTable_High(ItemTable);
+    }//GEN-LAST:event_HighStock_btnActionPerformed
+
+    private void lowStock_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lowStock_btnActionPerformed
+        Item h = new Item();
+        h.loadItemsToTable_Low(ItemTable);
+    }//GEN-LAST:event_lowStock_btnActionPerformed
+
+    private void ShowAll_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowAll_btnActionPerformed
+        Item h = new Item();
+        h.loadItemsToTable(ItemTable);
+    }//GEN-LAST:event_ShowAll_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -567,11 +619,13 @@ public class Inventory_Manager extends javax.swing.JFrame {
     private javax.swing.JButton Change_btn;
     private javax.swing.JPanel EmptyPanel;
     private javax.swing.JButton GenerateReport_btn;
+    private javax.swing.JButton HighStock_btn;
     private javax.swing.JTable ItemTable;
     private javax.swing.JTable Items_table;
     private javax.swing.JButton LogoutBtn;
     private javax.swing.JButton RecivedBtn;
     private javax.swing.JTextArea ReportStockArea;
+    private javax.swing.JButton ShowAll_btn;
     private javax.swing.JButton StockReportBtn;
     private javax.swing.JPanel StockReportPanel;
     private javax.swing.JButton UpdateStockBtn;
@@ -596,6 +650,7 @@ public class Inventory_Manager extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JButton lowStock_btn;
     private javax.swing.JTextField txtnewquantity;
     // End of variables declaration//GEN-END:variables
 }
