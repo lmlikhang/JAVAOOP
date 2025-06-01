@@ -128,7 +128,7 @@ public class Finance_Manager extends javax.swing.JFrame {
         jLabel2.setText("Financial Manager ");
 
         Btnlgout.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        Btnlgout.setForeground(new java.awt.Color(255, 255, 255));
+        Btnlgout.setForeground(new java.awt.Color(0, 0, 0));
         Btnlgout.setText("Log Out");
         Btnlgout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

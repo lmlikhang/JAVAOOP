@@ -80,12 +80,12 @@ public class Access_Dashboard extends javax.swing.JPanel {
 
         btnSales.setBackground(new java.awt.Color(153, 153, 153));
         btnSales.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnSales.setForeground(new java.awt.Color(255, 255, 255));
+        btnSales.setForeground(new java.awt.Color(102, 102, 102));
         btnSales.setText("Sales Manager");
 
         btnInventory.setBackground(new java.awt.Color(153, 153, 153));
         btnInventory.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnInventory.setForeground(new java.awt.Color(255, 255, 255));
+        btnInventory.setForeground(new java.awt.Color(102, 102, 102));
         btnInventory.setText("Inventory Manager");
         btnInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,16 +95,16 @@ public class Access_Dashboard extends javax.swing.JPanel {
 
         btnPurchase.setBackground(new java.awt.Color(153, 153, 153));
         btnPurchase.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnPurchase.setForeground(new java.awt.Color(255, 255, 255));
+        btnPurchase.setForeground(new java.awt.Color(102, 102, 102));
         btnPurchase.setText("Purchase Manager");
 
         btnFinance.setBackground(new java.awt.Color(153, 153, 153));
         btnFinance.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnFinance.setForeground(new java.awt.Color(255, 255, 255));
+        btnFinance.setForeground(new java.awt.Color(102, 102, 102));
         btnFinance.setText("Finance Manager");
 
-        BtnHome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        BtnHome.setForeground(new java.awt.Color(255, 255, 255));
+        BtnHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnHome.setForeground(new java.awt.Color(0, 0, 0));
         BtnHome.setText("Home");
         BtnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
