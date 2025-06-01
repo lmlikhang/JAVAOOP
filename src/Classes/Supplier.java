@@ -27,8 +27,7 @@ public class Supplier implements Saveable{
    
     }
     
-    @Override
-    public String toString() {
+    public String setSupplierID() {
         return SupplierID;
     }
 
