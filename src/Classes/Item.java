@@ -1,8 +1,12 @@
 package Classes;
 
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JFileChooser;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,6 +14,12 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
 public class Item implements Saveable {
     private String itemID;
@@ -358,18 +368,9 @@ public class Item implements Saveable {
 
         LocalDate today = LocalDate.now();
         String date = today.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        
-        String baseName = "src/assignment/java/oop/FM data/StockReports/stock_report_" + date;
-        String outputPath = baseName + ".txt";
-        int count = 1;
-        while (new File(outputPath).exists()) {
-            outputPath = baseName + "_" + count + ".txt";
-            count++;
-        }
-        
         try (
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath))
+            
         ) {
             
             report.append("=== STOCK REPORT ===\n");
@@ -377,8 +378,7 @@ public class Item implements Saveable {
             report.append(String.format("%-10s %-25s %-10s %-10s %-15s %-12s\n", "Item ID", "Item Name", "Price", "Qty", "Supplier", "Status"));
             report.append("-------------------------------------------------------------------------------------\n");
 
-            writer.write(report.toString());
-
+           
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
@@ -386,9 +386,9 @@ public class Item implements Saveable {
                     int qty = Integer.parseInt(parts[3]);
                     String status = qty < LOW_STOCK_THRESHOLD ? "LOW STOCK" : "sufficient";
 
-                    String csvLine = String.join(",", parts[0], parts[1], parts[2], parts[3], parts[4], status);
+                    String csvLine = String.join(" | ", parts[0], parts[1], parts[2], parts[3], parts[4], status ,"\n");
                     report.append(csvLine).append("\n");
-                    writer.write(csvLine + "\n");
+                    
                 }
             }
 
@@ -397,6 +397,37 @@ public class Item implements Saveable {
         }
 
         return report.toString();
+    }
+    
+    public static void exportStockReportToPDF(JTextArea textArea, JFrame parentFrame) {
+        String content = textArea.getText();
+        if (content.isEmpty()) {
+            JOptionPane.showMessageDialog(parentFrame, "Stock report is empty. Generate it first.");
+            return;
+        }
+
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Save Stock Report as PDF");
+        fileChooser.setSelectedFile(new File("Stock_Report.pdf"));
+        int userSelection = fileChooser.showSaveDialog(parentFrame);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            try {
+                Document document = new Document();
+                PdfWriter.getInstance(document, new FileOutputStream(fileToSave));
+                document.open();
+
+                Font font = FontFactory.getFont(FontFactory.COURIER, 10);
+                Paragraph paragraph = new Paragraph(content, font);
+                document.add(paragraph);
+
+                document.close();
+                JOptionPane.showMessageDialog(parentFrame, "PDF saved to:\n" + fileToSave.getAbsolutePath());
+            } catch (DocumentException | IOException e) {
+                JOptionPane.showMessageDialog(parentFrame, "Error exporting to PDF:\n" + e.getMessage());
+            }
+        }
     }
 
 }

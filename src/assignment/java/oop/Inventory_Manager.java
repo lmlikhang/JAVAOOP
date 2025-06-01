@@ -76,6 +76,7 @@ public class Inventory_Manager extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         GenerateReport_btn = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        PDF_btn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         ApprovedBtn = new javax.swing.JButton();
@@ -354,25 +355,39 @@ public class Inventory_Manager extends javax.swing.JFrame {
 
         jLabel10.setText("Generate current stock report");
 
+        PDF_btn.setText("Export PDF");
+        PDF_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PDF_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(GenerateReport_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(GenerateReport_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                        .addComponent(PDF_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(GenerateReport_btn)
-                .addGap(27, 27, 27))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(GenerateReport_btn)
+                    .addComponent(PDF_btn))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout StockReportPanelLayout = new javax.swing.GroupLayout(StockReportPanel);
@@ -396,7 +411,7 @@ public class Inventory_Manager extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jPanel2.add(StockReportPanel, "card6");
@@ -607,6 +622,11 @@ public class Inventory_Manager extends javax.swing.JFrame {
         h.loadItemsToTable(ItemTable);
     }//GEN-LAST:event_ShowAll_btnActionPerformed
 
+    private void PDF_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PDF_btnActionPerformed
+        Item item = new Item();
+        item.exportStockReportToPDF(ReportStockArea, this);
+    }//GEN-LAST:event_PDF_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -623,6 +643,7 @@ public class Inventory_Manager extends javax.swing.JFrame {
     private javax.swing.JTable ItemTable;
     private javax.swing.JTable Items_table;
     private javax.swing.JButton LogoutBtn;
+    private javax.swing.JButton PDF_btn;
     private javax.swing.JButton RecivedBtn;
     private javax.swing.JTextArea ReportStockArea;
     private javax.swing.JButton ShowAll_btn;

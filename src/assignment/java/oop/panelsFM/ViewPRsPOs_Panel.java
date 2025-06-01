@@ -29,7 +29,7 @@ public class ViewPRsPOs_Panel extends javax.swing.JPanel {
      private void loadPurchaseRequisitions() {
         DefaultTableModel model = (DefaultTableModel) tablePRs.getModel();
         model.setRowCount(0); // Clear previous data
-        String path = "C:\\Users\\user\\Documents\\NetBeansProjects\\JAVAOOP\\src\\assignment\\java\\oop\\FM data\\purchase_requisitions.txt";
+        String path = "src/assignment/java/oop/FM data/purchase_requisitions.txt";
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = br.readLine()) != null) {
