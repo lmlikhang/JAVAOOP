@@ -249,7 +249,7 @@ public class Finance_Manager extends javax.swing.JFrame {
     } else if (panel instanceof assignment.java.oop.panelsFM.ApprovePO_Panel) {
     wrapper.setPreferredSize(new Dimension(600, 400)); // Approve PO
     } else if (panel instanceof assignment.java.oop.panelsFM.ViewPRsPOs_Panel) {
-    wrapper.setPreferredSize(new Dimension(600, 600)); // PRs and POs panel (larger)
+    wrapper.setPreferredSize(new Dimension(700, 700)); // PRs and POs panel (larger)
     } else {
     wrapper.setPreferredSize(new Dimension(600, 350)); // Default size
 }

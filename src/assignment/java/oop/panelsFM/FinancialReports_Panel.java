@@ -196,9 +196,6 @@ public class FinancialReports_Panel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Please enter month as 'Month YYYY' (e.g., May 2025)");
         return;
     }
-        
-    
-    
 
         StringBuilder report = new StringBuilder("=== Financial Report ===\n\n");
 
