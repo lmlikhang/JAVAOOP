@@ -43,26 +43,7 @@ public class ApprovePO_Panel extends javax.swing.JPanel {
 
 
     }
-    
-//    private static class StatusColorRenderer extends javax.swing.table.DefaultTableCellRenderer {
-//    @Override
-//    public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value,
-//            boolean isSelected, boolean hasFocus, int row, int column) {
-//        
-//        java.awt.Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-//
-//       
-//        if ("Approved".equals(value)) {
-//            c.setForeground(new java.awt.Color(0, 153, 0)); 
-//        } else if ("Declined".equals(value)) {
-//            c.setForeground(java.awt.Color.RED); 
-//        } else {
-//            c.setForeground(java.awt.Color.BLACK); 
-//        }
-//        
-//        return c;
-//    }
-//}
+
     private void saveTableToFile() {
     String filePath = "src/assignment/java/oop/FM data/purchase_orders.txt"; 
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
