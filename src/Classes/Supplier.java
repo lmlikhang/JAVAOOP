@@ -23,13 +23,13 @@ public class Supplier implements Saveable{
         this.Product = Product;
     }
     
+       public Supplier() {
+   
+    }
+    
     @Override
     public String toString() {
         return SupplierID;
-    }
-    
-    public Supplier() {
-   
     }
 
     public String getSupplierID() {
