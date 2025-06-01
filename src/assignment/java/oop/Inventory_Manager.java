@@ -120,7 +120,7 @@ public class Inventory_Manager extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(ApprovePOtable);
 
-        RecivedBtn.setText("Recived");
+        RecivedBtn.setText("Received");
         RecivedBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RecivedBtnActionPerformed(evt);
