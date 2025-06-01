@@ -856,7 +856,7 @@ public class Sales_Manager extends javax.swing.JFrame {
         Panels.revalidate();
         Panels.repaint();
         Supplier table = new Supplier();
-        table.loadTSupplieroTable(suppliertable);
+        table.loadToSupplierTable(suppliertable);
     }//GEN-LAST:event_SupplierEntry_btnActionPerformed
 
     private void DailyItemSalesEntry_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DailyItemSalesEntry_btnActionPerformed
@@ -961,7 +961,7 @@ public class Sales_Manager extends javax.swing.JFrame {
             txtEmail.setText("");
             txtProduct.setText("");
             Supplier table = new Supplier();
-            table.loadTSupplieroTable(suppliertable);
+            table.loadToSupplierTable(suppliertable);
             JOptionPane.showMessageDialog(this, "Supplier are saved successfully.");
         }
     }//GEN-LAST:event_Suppliers_Save_btnActionPerformed
@@ -972,7 +972,7 @@ public class Sales_Manager extends javax.swing.JFrame {
                 String selectedID = suppliertable.getValueAt(selectedRow, 0).toString();
                 Supplier s = new Supplier();
                 s.removeFromFile(selectedID);
-                s.loadTSupplieroTable(suppliertable);
+                s.loadToSupplierTable(suppliertable);
                 JOptionPane.showMessageDialog(this, "Item deleted.");
             } else {
                 JOptionPane.showMessageDialog(this, "Please select an item to remove.");
@@ -996,7 +996,7 @@ public class Sales_Manager extends javax.swing.JFrame {
                 txtEmail.setText(s.getEmail());
                 txtProduct.setText(s.getProduct());
                 s.removeFromFile(selectedID); 
-                s.loadTSupplieroTable(suppliertable);
+                s.loadToSupplierTable(suppliertable);
             } else {
                 JOptionPane.showMessageDialog(this, "Please select an item to remove.");
             }

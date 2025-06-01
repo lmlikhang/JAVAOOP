@@ -67,7 +67,7 @@ public class Supplier implements Saveable{
     
     
     
-    public void loadTSupplieroTable(javax.swing.JTable supplierinfo) {
+    public void loadToSupplierTable(javax.swing.JTable supplierinfo) {
         String filePath = "src/assignment/java/oop/FM data/suppliers.txt"; 
 
 

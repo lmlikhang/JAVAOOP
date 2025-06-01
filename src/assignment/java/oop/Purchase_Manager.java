@@ -460,7 +460,7 @@ public class Purchase_Manager extends javax.swing.JFrame {
         
         Supplier table = new Supplier();
         
-        table.loadTSupplieroTable(supplier_table);
+        table.loadToSupplierTable(supplier_table);
     }//GEN-LAST:event_ListOfSupplier_btnActionPerformed
 
     private void GeneratePO_btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneratePO_btn3ActionPerformed
