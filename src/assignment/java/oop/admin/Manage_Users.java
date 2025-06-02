@@ -271,31 +271,47 @@ public class Manage_Users extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
-        String type = txtUserType.getText();
+        String username = txtUsername.getText().trim();
+        String password = txtPassword.getText().trim();
+        String type = txtUserType.getText().trim();
 
         if (username.isEmpty() || password.isEmpty() || type.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "All fields are required.");
-        return;
-    }
+            JOptionPane.showMessageDialog(this, "All fields are required.");
+            return;
+        }
 
-    try (FileWriter fw = new FileWriter(filePath, true);
-         BufferedWriter bw = new BufferedWriter(fw)) {
-        bw.write(username + "," + password + "," + type);
-        bw.newLine();
-    } catch (IOException ex) {
-        JOptionPane.showMessageDialog(this, "Error adding user: " + ex.getMessage());
-        return;
-    }
+         // Check if username already exists
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 1 && parts[0].equalsIgnoreCase(username)) {
+                    JOptionPane.showMessageDialog(this, "Username already exists. Please choose a different one.");
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error checking existing users: " + e.getMessage());
+            return;
+        }
 
-    loadUsersToTable();
-    JOptionPane.showMessageDialog(this, "User added.");
-    
-    txtUsername.setText("");
-    txtPassword.setText("");
-    txtUserType.setText("");
+        
+        try (FileWriter fw = new FileWriter(filePath, true);
+             BufferedWriter bw = new BufferedWriter(fw)) {
+            bw.write(username + "," + password + "," + type);
+            bw.newLine();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Error adding user: " + ex.getMessage());
+            return;
+        }
 
+        loadUsersToTable();
+        JOptionPane.showMessageDialog(this, "User added.");
+
+        // Clear input fields
+        txtUsername.setText("");
+        txtPassword.setText("");
+        txtUserType.setText("");
 
     }//GEN-LAST:event_jButton3ActionPerformed
 

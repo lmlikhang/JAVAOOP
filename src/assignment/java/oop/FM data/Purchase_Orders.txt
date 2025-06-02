@@ -11,7 +11,7 @@ PO0010,Sofia Tan,Sweet Potatoes,35,2.00,Approved,30-06-2025
 PO0011,Zakaria Aziz,Beef Sirloin,10,28.00,Received,01-07-2025
 PO0012,Grace Lim,Watermelon,6,15.00,Pending,02-07-2025
 PO0013,Arun Prakash,Cherry Tomatoes,20,3.50,Declined,03-07-2025
-PO0014,Farah Aina,Mangoes,25,5.50,Received,04-07-2025
+PO0014,Farah Aina,Mangoes,25,5.50,Paid,04-07-2025
 PO0015,Jason Lee,Cauliflower,15,2.80,Pending,05-07-2025
 PO0016,Mei Ching,Spinach,22,3.00,Declined,06-08-2025
 PO0017,Azman Rahman,Cucumber,30,1.80,Paid,07-08-2025

@@ -1,7 +1,8 @@
 123,123,Administrator
 321,321,Sales Manager
-111,111,Purchase Manager
 222,222,Inventory Manager
 333,333,Finance Manager
 888,888,Finance Manager
 999,999,Inventory Manager
+555,555,Sales Manager
+565,565,Purchase Manager
