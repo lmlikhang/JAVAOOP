@@ -13,11 +13,7 @@ import java.io.*;
 public class InventoryUpdate_Panel extends javax.swing.JPanel {
     
     private DefaultTableModel model;
-
-
-    /**
-     * Creates new form InventoryUpdate_Panel
-     */
+    
     public InventoryUpdate_Panel() {
         initComponents();
         loadInventoryUpdates();

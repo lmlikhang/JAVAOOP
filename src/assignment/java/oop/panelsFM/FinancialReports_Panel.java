@@ -235,7 +235,7 @@ public class FinancialReports_Panel extends javax.swing.JPanel {
                 totalAmount += total;
 
             } catch (java.text.ParseException e) {
-                // If the date is badly formatted, skip this line
+                
                 System.err.println("Invalid date format in line: " + line);
             }
         }

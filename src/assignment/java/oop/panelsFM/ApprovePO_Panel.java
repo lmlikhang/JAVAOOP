@@ -217,7 +217,6 @@ public class ApprovePO_Panel extends javax.swing.JPanel {
 
             Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 
-            // Only style non-selected rows
             if (!isSelected) {
                 try {
                     String status = table.getValueAt(row, 5).toString(); 
@@ -244,7 +243,6 @@ public class ApprovePO_Panel extends javax.swing.JPanel {
         }
     });
 }
-
 
 
 
